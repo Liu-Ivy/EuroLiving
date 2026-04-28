@@ -3,51 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euro Living 歐洲安居家 | 您在歐洲的落地好夥伴</title>
+    <title>Euro Living 歐洲安居家 | 專業歐洲落地服務</title>
     <style>
-        :root { --primary: #2c3e50; --accent: #d4af37; --bg: #f8f9fa; }
-        body { font-family: 'PingFang TC', sans-serif; margin: 0; background: var(--bg); color: var(--primary); }
-        header { background: white; padding: 20px; text-align: center; border-bottom: 2px solid var(--accent); }
-        .hero { padding: 80px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?europe,house'); background-size: cover; color: white; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px; }
-        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card h3 { border-left: 4px solid var(--accent); padding-left: 10px; }
-        .price { color: #e74c3c; font-weight: bold; }
-        footer { background: var(--primary); color: white; text-align: center; padding: 20px; }
+        :root { --main-gold: #c5a059; --dark-blue: #1a2a3a; --light-bg: #f4f7f6; }
+        body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; }
+        .nav { background: white; padding: 1.5rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; }
+        .hero { background: var(--dark-blue); color: white; padding: 100px 20px; text-align: center; }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 30px; border-radius: 8px; border-top: 5px solid var(--main-gold); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .card h3 { color: var(--dark-blue); margin-top: 0; }
+        .price-tag { display: inline-block; background: #eef2f3; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #d35400; margin: 10px 0; }
+        .cta-btn { display: inline-block; background: var(--main-gold); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin-top: 40px; font-weight: bold; }
+        footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 50px; }
     </style>
 </head>
 <body>
-    <header><h1>Euro Living 歐洲安居家</h1></header>
-    <section class="hero">
-        <h2>協助留學生在當地生活輕鬆落地</h2>
-        <p>專業接機、居留辦理、房產諮詢一站式服務</p>
-    </section>
-    <section class="service-grid">
+
+<div class="nav">
+    <h1>EURO LIVING 歐洲安居家</h1>
+</div>
+
+<section class="hero">
+    <h2>讓您的歐洲生活輕鬆落地</h2>
+    <p>專業、誠信、一站式留學生與移民支援服務</p>
+</section>
+
+<div class="container">
+    <div class="grid">
         <div class="card">
-            <h3>🚗 落地接機服務</h3>
+            <h3>🚗 專業接機服務</h3>
+            <p>由專業車隊或中文人士陪同，確保您下飛機後的首站安全無憂。</p>
+            <div class="price-tag">99€ 起</div>
             <ul>
-                [span_6](start_span)<li>中文人士陪同接機：99€[span_6](end_span)</li>
-                [span_7](start_span)<li>專業車隊接機：199€[span_7](end_span)</li>
-                [span_8](start_span)<li>專業車隊 + 中文陪同：249€[span_8](end_span)</li>
+                <li>中文人士陪同接機</li>
+                <li>專業車隊服務 (199€)</li>
+                <li>VIP 組合 (249€)</li>
             </ul>
         </div>
+
         <div class="card">
-            <h3>🪪 居留辦理協助</h3>
-            [span_9](start_span)<p>專業律師團隊：39,000 NT[span_9](end_span)</p>
+            <h3>🪪 居留法務諮詢</h3>
+            <p>與專業律師團隊合作，處理各類簽證、住家證明及文件審核。</p>
+            <div class="price-tag">專業辦理 39,000 NT</div>
             <ul>
-                [span_10](start_span)<li>遞件 CITA 申請：1,999 NT[span_10](end_span)</li>
-                [span_11](start_span)<li>住家證明陪同：8,999 NT[span_11](end_span)</li>
+                <li>CITA 遞件申請</li>
+                <li>官方翻譯與認證</li>
+                <li>NIE / 居留證辦理</li>
             </ul>
         </div>
+
         <div class="card">
-            <h3>🏠 找房與房產諮詢</h3>
-            [span_12](start_span)<p>為您精選房產並帶看，讓您在歐洲住得安心[span_12](end_span)。</p>
+            <h3>🏠 房產與住房代看</h3>
+            <p>遠端代看、租房諮詢，幫您在抵達前解決「住」的大事。</p>
+            <div class="price-tag">代看服務 25,000 NT 起</div>
             <ul>
-                [span_13](start_span)<li>租房代看 (10間資訊/5間帶看)：25,000 NT[span_13](end_span)</li>
-                [span_14](start_span)<li>買房諮詢服務：50,000 NT[span_14](end_span)</li>
+                <li>精選房源推薦</li>
+                <li>房屋代管與代租</li>
+                <li>買房投資諮詢</li>
             </ul>
         </div>
-    </section>
-    <footer>© 2026 Euro Living 歐洲安居家. All Rights Reserved.</footer>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="mailto:info@euroliving.net" class="cta-btn">立即諮詢服務</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Euro Living 歐洲安居家 | www.euroliving.net</p>
+    <p>聯繫我們：info@euroliving.net</p>
+</footer>
+
 </body>
 </html>

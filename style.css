@@ -1,0 +1,27 @@
+/* 關於我們區塊樣式 */
+.section-about { padding: 100px 20px; background: var(--white); }
+.about-header { text-align: center; margin-bottom: 80px; }
+.about-header h3 { color: var(--main-gold); letter-spacing: 5px; }
+.about-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px; 
+    max-width: 1100px; 
+    margin: auto; 
+}
+.about-item { 
+    padding: 30px; 
+    background: var(--soft-bg); 
+    border-left: 4px solid var(--main-gold); 
+    transition: 0.3s;
+}
+.about-item:hover { transform: translateX(10px); }
+.about-num { font-weight: 800; color: var(--main-gold); }
+.highlight-box { 
+    grid-column: 1 / -1; 
+    background: var(--dark-blue); 
+    color: white; 
+    padding: 60px; 
+    border-radius: 20px; 
+    text-align: center; 
+}

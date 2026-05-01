@@ -6,12 +6,10 @@
     <title>Euro Living 歐洲安居家 | 西班牙專業安家落地服務</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        /* 消費者心理學調色盤 */
         :root { 
             --main-gold: #c5a059; 
             --dark-blue: #1a2a3a; 
-            --trust-blue: #2c3e50;
-            --soft-bg: #fdfaf5; /* 象牙白：營造溫暖與層次感 */
+            --soft-bg: #fdfaf5; 
             --white: #ffffff;
             --text-main: #2c3e50;
             --text-muted: #7f8c8d;
@@ -20,24 +18,13 @@
         * { box-sizing: border-box; }
         body { 
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; 
-            margin: 0; 
-            background: var(--soft-bg); 
-            color: var(--text-main); 
-            line-height: 1.7; 
-            scroll-behavior: smooth; 
+            margin: 0; background: var(--soft-bg); color: var(--text-main); line-height: 1.7; scroll-behavior: smooth; 
         }
 
-        /* 導覽列：Icon 回歸 + 極簡漢堡 */
+        /* 導覽列 */
         .navbar { 
-            background: var(--white); 
-            padding: 0.8rem 1.5rem; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
-            position: sticky; 
-            top: 0; 
-            z-index: 2000; 
+            background: var(--white); padding: 0.8rem 1.5rem; display: flex; justify-content: space-between; align-items: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 2000; 
         }
         .navbar h1 { margin: 0; color: var(--dark-blue); font-size: 1.1rem; letter-spacing: 2px; font-weight: bold; }
         
@@ -45,8 +32,7 @@
         .social-quick-links { display: flex; gap: 12px; border-right: 1px solid #eee; padding-right: 15px; }
         .social-quick-links a { color: var(--dark-blue); font-size: 1.2rem; transition: 0.3s; }
         .social-quick-links a:hover { color: var(--main-gold); transform: scale(1.1); }
-        
-        .hamburger { cursor: pointer; font-size: 1.4rem; color: var(--dark-blue); padding: 5px; }
+        .hamburger { cursor: pointer; font-size: 1.4rem; color: var(--dark-blue); }
 
         /* 全螢幕選單 */
         .nav-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: rgba(26,42,58,0.97); z-index: 3000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.4s ease-in-out; }
@@ -54,15 +40,20 @@
         .nav-overlay a { color: white; text-decoration: none; font-size: 1.6rem; margin: 12px 0; font-weight: 300; letter-spacing: 2px; transition: 0.3s; }
         .close-btn { position: absolute; top: 20px; right: 25px; color: white; font-size: 2.5rem; cursor: pointer; }
 
-        /* Hero 區塊：視覺衝擊力 */
+        /* --- 本次優化重點：Hero 區塊 (巴塞隆納夜景浮水印感) --- */
         .hero { 
-            background: linear-gradient(rgba(26,42,58,0.5), rgba(26,42,58,0.5)), url('https://images.unsplash.com/photo-1543783232-260174b1e22c?q=80&w=1200'); 
-            background-size: cover; background-position: center; 
-            color: white; padding: 140px 20px; text-align: center; 
+            /* 使用巴塞隆納高畫質夜景圖，搭配深藍色漸層遮罩營造浮水印質感 */
+            background: linear-gradient(rgba(26, 42, 58, 0.75), rgba(26, 42, 58, 0.85)), 
+                        url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=1200'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; /* 營造視差捲動的深度感 */
+            color: white; padding: 150px 20px; text-align: center; 
         }
-        .hero h2 { font-size: 2.4rem; margin-bottom: 15px; font-weight: bold; letter-spacing: 1px; }
+        .hero h2 { font-size: 2.6rem; margin-bottom: 15px; font-weight: bold; letter-spacing: 2px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; }
 
-        /* 區塊穿插設計：深淺交替 */
+        /* 區塊樣式 */
         .section-light { background: var(--soft-bg); padding: 80px 20px; }
         .section-white { background: var(--white); padding: 80px 20px; }
         .section-dark { background: var(--dark-blue); color: white; padding: 80px 20px; }
@@ -72,30 +63,23 @@
         .section-title h2 { font-size: 1.8rem; color: inherit; position: relative; display: inline-block; padding-bottom: 15px; }
         .section-title h2::after { content: ''; width: 40px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        /* 卡片設計優化 */
+        /* 卡片設計 */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; }
         .card { 
             background: var(--white); border-radius: 20px; overflow: hidden; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.05); transition: 0.4s; border: 1px solid rgba(0,0,0,0.03); 
         }
-        .card:hover { transform: translateY(-12px); box-shadow: 0 20px 45px rgba(0,0,0,0.1); }
+        .card:hover { transform: translateY(-10px); }
         .card-img { width: 100%; height: 230px; background-size: cover; background-position: center; }
         .card-content { padding: 30px; }
-        .card h3 { margin: 0 0 15px 0; color: var(--dark-blue); font-size: 1.3rem; }
-        .card p { font-size: 0.95rem; color: var(--text-muted); }
+        .card h3 { color: var(--dark-blue); margin-bottom: 10px; }
 
-        /* 心理學按鈕設計 */
         .cta-btn { 
-            display: inline-block; background: var(--main-gold); color: white; 
-            padding: 16px 45px; text-decoration: none; border-radius: 50px; 
-            font-weight: bold; margin-top: 40px; transition: 0.3s; 
+            display: inline-block; background: var(--main-gold); color: white; padding: 16px 45px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; 
             box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2); 
         }
         .cta-btn:hover { background: #b08d4a; transform: scale(1.05); }
-
-        /* 特色區塊（心理學引導） */
-        .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; text-align: center; }
-        .diff-item i { font-size: 2.8rem; color: var(--main-gold); margin-bottom: 25px; }
 
         footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); font-size: 0.85rem; }
     </style>
@@ -126,7 +110,7 @@
 <section class="hero">
     <div class="container">
         <h2>讓您的西班牙生活輕鬆落地</h2>
-        <p>專業、誠信、在地的一站式安家支援服務</p>
+        <p>我們不是仲介，是您在西班牙最誠信、專業且在地的一站式後盾</p>
         <a href="mailto:info@euroliving.net" class="cta-btn">立即預約諮詢</a>
     </div>
 </section>
@@ -153,80 +137,25 @@
     </div>
 </section>
 
-<section class="section-white" id="services">
-    <div class="container">
-        <div class="section-title"><h2>專業服務內容</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600')"></div>
-                <div class="card-content">
-                    <h3>簽證與居留辦理</h3>
-                    <p>100% 成功率。律師文件審核、NIE/TIE 辦理與大學學歷對等服務。</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1559027615-cd9d7a93034c?q=80&w=600')"></div>
-                <div class="card-content">
-                    <h3>落地陪同服務</h3>
-                    <p>機場接機、銀行開戶、醫療保險申請、城市導覽與 24/7 緊急支援。</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-light" id="housing">
-    <div class="container">
-        <div class="section-title"><h2>住宿解決方案</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=600')"></div>
-                <div class="card-content">
-                    <h3>多元住宿安排</h3>
-                    <p>校內宿舍、嚴選寄宿家庭 (含監護) 及私人租屋代看，確保您住得安心。</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="section-dark" id="whyus">
     <div class="container">
         <div class="section-title"><h2>為什麼選我們</h2></div>
-        <div class="diff-grid">
-            <div class="diff-item">
-                <i class="fas fa-map-location-dot"></i>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: center;">
+            <div>
+                <i class="fas fa-map-location-dot" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>真正西班牙在地</h4>
-                <p>非遠端代辦，我們長期駐守當地，深諳法規文化，即時解決您的問題。</p>
+                <p>非遠端代辦，我們長期駐守當地，深諳法規與文化。</p>
             </div>
-            <div class="diff-item">
-                <i class="fas fa-hand-holding-heart"></i>
+            <div>
+                <i class="fas fa-hand-holding-heart" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>全程現場陪同</h4>
-                <p>拒絕雞同鴨講。專業人員全程陪同辦理各項手續，成功落地更有保障。</p>
+                <p>專業人員親自帶領，辦理手續不再雞同鴨講。</p>
             </div>
-            <div class="diff-item">
-                <i class="fas fa-user-shield"></i>
+            <div>
+                <i class="fas fa-user-shield" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>您的長期後盾</h4>
-                <p>收費透明，服務不因收費而結束，我們是您在歐洲最可靠的夥伴。</p>
+                <p>收費透明，是您在歐洲最可靠的生活夥伴。</p>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-white" id="blog">
-    <div class="container">
-        <div class="section-title"><h2>最新專欄</h2></div>
-        <div class="grid">
-            <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600')"></div>
-                <div class="card-content">
-                    <h3>西班牙居留最速攻略</h3>
-                    <p>2024年最新辦理流程與注意事項，避開常見代辦陷阱...</p>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="mailto:info@euroliving.net" class="cta-btn">立即開始您的安居計畫</a>
         </div>
     </div>
 </section>

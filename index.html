@@ -3,127 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Euro Living 歐洲安居家 | 專業歐洲落地服務</title>
+    <title>Euro Living 歐洲安居家 | 西班牙專業安家落地服務</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        :root { --main-gold: #c5a059; --dark-blue: #1a2a3a; --light-bg: #f4f7f6; --fb-blue: #1877F2; --ig-pink: #E4405F; --threads-black: #000000; }
-        body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; scroll-behavior: smooth; }
-        
-        /* 導覽列 */
-        .nav { background: white; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; font-size: 1.2rem; }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; }
-        .nav-links a:hover { color: var(--main-gold); }
-        
-        .social-icons-top { display: flex; gap: 15px; border-left: 1px solid #ddd; padding-left: 15px; }
-        .social-icons-top a { color: var(--dark-blue); font-size: 1.3rem; transition: 0.2s; }
-        .social-icons-top a:hover { color: var(--main-gold); }
+        :root { --main-gold: #c5a059; --dark-blue: #1a2a3a; --light-bg: #f4f7f6; --text-gray: #555; }
+        * { box-sizing: border-box; }
+        body { font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; scroll-behavior: smooth; }
 
-        .hero { background: var(--dark-blue); color: white; padding: 70px 20px; text-align: center; }
-        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        /* 導覽列與漢堡選單 */
+        .navbar { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 2000; }
+        .navbar h1 { margin: 0; color: var(--dark-blue); font-size: 1.2rem; letter-spacing: 1px; }
         
-        /* Blog 區塊樣式 */
+        .nav-menu { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+        .nav-menu a { text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--main-gold); }
+
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--dark-blue); }
+
+        /* 行動裝置選單樣式 */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-menu { position: fixed; top: 60px; right: -100%; width: 70%; height: calc(100vh - 60px); background: white; flex-direction: column; padding: 40px; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+            .nav-menu.active { right: 0; }
+        }
+
+        /* Hero 區塊 */
+        .hero { background: linear-gradient(rgba(26,42,58,0.8), rgba(26,42,58,0.8)), url('https://images.unsplash.com/photo-1543783232-260174b1e22c?q=80&w=1200'); background-size: cover; color: white; padding: 100px 20px; text-align: center; }
+        .hero h2 { font-size: 2.2rem; margin-bottom: 15px; }
+
+        /* 通用容器 */
+        .container { max-width: 1100px; margin: auto; padding: 60px 20px; }
         .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h2 { color: var(--dark-blue); font-size: 2rem; position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title h2::after { content: ''; width: 50px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        .section-title h2 { font-size: 1.8rem; color: var(--dark-blue); position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
-        .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .blog-card:hover { transform: translateY(-5px); }
-        .blog-img { width: 100%; height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #888; font-size: 0.9rem; background-size: cover; background-position: center; }
-        .blog-content { padding: 20px; }
-        .blog-content h4 { margin: 0 0 10px 0; color: var(--dark-blue); }
-        .blog-content p { font-size: 0.85rem; color: #666; margin-bottom: 15px; }
-        .read-more { color: var(--main-gold); text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+        /* 卡片佈局 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--main-gold); }
+        .card h3 { margin-top: 0; color: var(--dark-blue); font-size: 1.1rem; }
+        .card p { font-size: 0.9rem; color: var(--text-gray); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
-        .card { background: white; padding: 30px; border-radius: 12px; border-top: 5px solid var(--main-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        
-        footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 60px; font-size: 0.85rem; }
+        /* 差異對比區 */
+        .diff-section { background: #fff; padding: 40px; border-radius: 15px; margin-top: 20px; border: 1px solid #eee; }
+        .highlight-box { background: #fef9ef; padding: 20px; border-radius: 8px; border-left: 5px solid #d35400; margin-top: 20px; }
+
+        /* 社群連結 */
+        .social-bar { display: flex; gap: 15px; align-items: center; margin-top: 10px; }
+        .social-bar a { color: var(--dark-blue); font-size: 1.2rem; }
+
+        footer { background: var(--dark-blue); color: white; text-align: center; padding: 40px; margin-top: 60px; }
     </style>
 </head>
 <body>
 
-<div class="nav">
+<nav class="navbar">
     <h1>EURO LIVING 歐洲安居家</h1>
-    <div class="nav-links">
-        <a href="#services">服務項目</a>
-        <a href="#blog">最新專欄</a>
-        <div class="social-icons-top">
-            <a href="https://www.facebook.com/share/1BBk4G2nhR/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.instagram.com/euroliving.tw" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.threads.net/@euroliving.tw" target="_blank"><i class="fa-brands fa-threads"></i></a>
+    <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" onclick="toggleMenu()">關於我們</a></li>
+        <li><a href="#services" onclick="toggleMenu()">服務內容</a></li>
+        <li><a href="#housing" onclick="toggleMenu()">住宿安排</a></li>
+        <li><a href="#diff" onclick="toggleMenu()">為什麼選我們</a></li>
+        <li><a href="#blog" onclick="toggleMenu()">專欄文章</a></li>
+        <li><div class="social-bar">
+            <a href="https://www.facebook.com/share/1BBk4G2nhR/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/euroliving.tw"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.threads.net/@euroliving.tw"><i class="fa-brands fa-threads"></i></a>
+        </div></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h2>我們不是代辦、不是仲介<br>而是您在西班牙的在地後盾</h2>
+    <p>協助華人家庭、學生、數位遊牧者輕鬆開啟歐洲生活</p>
+</section>
+
+<div class="container" id="about">
+    <div class="section-title"><h2>適合這樣的您</h2></div>
+    <div class="grid">
+        <div class="card"><h3>華人家庭</h3><p>尋求優質生活環境與教育資源，移居西班牙的首選支援。</p></div>
+        <div class="card"><h3>學生與陪讀家長</h3><p>全方位安置支援，讓求學之路順利無礙。</p></div>
+        <div class="card"><h3>工作者與數位遊牧</h3><p>追求工作生活平衡，專業人士在西安家的最佳夥伴。</p></div>
+        <div class="card"><h3>長居或半移居者</h3><p>享受地中海生活方式，長期居住的規劃專家。</p></div>
+    </div>
+</div>
+
+<div class="container" id="services" style="background: #eceff1; max-width: 100%;">
+    <div style="max-width: 1100px; margin: auto; padding: 0 20px;">
+        <div class="section-title"><h2>專業服務流程</h2></div>
+        <div class="grid">
+            <div class="card"><h3>1. 免費初談</h3><p>深入了解您的具體狀況與需求。</p></div>
+            <div class="card"><h3>2. 安家規劃</h3><p>確認服務範圍，制定個人化方案。</p></div>
+            <div class="card"><h3>3. 落地陪同</h3><p>持續在地支援，陪伴您安心成家。</p></div>
+        </div>
+        
+        <div class="section-title" style="margin-top: 60px;"><h2>簽證與居留服務</h2></div>
+        <div class="grid">
+            <div class="card"><h3>材料準備指導</h3><p>入學通知書、住宿證明、財力證明等文件審核。</p></div>
+            <div class="card"><h3>預約與流程管理</h3><p>提供團體預約，專業安排時程，成功率達100%。</p></div>
+            <div class="card"><h3>NIE 與文件認證</h3><p>申請住家證明、大學學歷對等、專業口筆譯。</p></div>
         </div>
     </div>
 </div>
 
-<section class="hero">
-    <h2>讓您的歐洲生活輕鬆落地</h2>
-    <p>專業、誠信、一站式留學生與移民支援服務</p>
-</section>
-
-<div class="container">
-    <div id="services" class="section-title">
-        <h2>專業服務</h2>
-    </div>
+<div class="container" id="housing">
+    <div class="section-title"><h2>住宿安排與抵達協助</h2></div>
     <div class="grid">
-        <div class="card">
-            <h3>🚗 專業接機服務</h3>
-            <p>確保您下飛機後的首站安全無憂。</p>
-            <ul><li>99€ 起 / 中文陪同</li></ul>
-        </div>
-        <div class="card">
-            <h3>🪪 居留法務諮詢</h3>
-            <p>專業律師團隊處理簽證與文件。</p>
-            <ul><li>專業辦理 39,000 NT</li></ul>
-        </div>
-        <div class="card">
-            <h3>🏠 房產與住房代看</h3>
-            <p>遠端代看，解決抵達前的住處問題。</p>
-            <ul><li>代看服務 25,000 NT 起</li></ul>
-        </div>
+        <div class="card"><h3>多元住宿選擇</h3><p>校內宿舍、寄宿家庭(24/7監護)、私人租屋彈性選擇。</p></div>
+        <div class="card"><h3>抵達協助</h3><p>機場溫暖接待、發放交通卡、銀行開戶、申請醫療保險。</p></div>
+        <div class="card"><h3>城市導覽</h3><p>帶領熟悉超市、醫院、交通站點，迅速適應新環境。</p></div>
     </div>
+</div>
 
-    <div id="blog" class="section-title">
-        <h2>最新專欄</h2>
-    </div>
-    <div class="blog-grid">
-        <div class="blog-card">
-            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1543783232-260174b1e22c?q=80&w=400')"></div>
-            <div class="blog-content">
-                <h4>西班牙居留辦理全攻略</h4>
-                <p>第一次辦理 NIE 需要注意什麼？專業律師告訴你最常見的申請誤區...</p>
-                <a href="#" class="read-more">閱讀全文 →</a>
+<div class="container" id="diff">
+    <div class="diff-section">
+        <div class="section-title"><h2>我們與一般代辦的差異</h2></div>
+        <div class="grid">
+            <div>
+                <h4>📍 真正西班牙在地</h4>
+                <p>團隊長期駐守當地，深諳法規與文化，非遠端遙控服務。</p>
+            </div>
+            <div>
+                <h4>🤝 現場即時支援</h4>
+                <p>提供面對面協助，陪同辦理各項手續，解決實際問題。</p>
+            </div>
+            <div>
+                <h4>🛡️ 長期可靠夥伴</h4>
+                <p>建立持續服務關係，不會在收費後消失，始終守護您的安居生活。</p>
             </div>
         </div>
-        <div class="blog-card">
-            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400')"></div>
-            <div class="blog-content">
-                <h4>留學生租房必看清單</h4>
-                <p>在歐洲租房如何避免合約陷阱？遠端代看能幫你省下的不只是機票錢...</p>
-                <a href="#" class="read-more">閱讀全文 →</a>
-            </div>
-        </div>
-        <div class="blog-card">
-            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1493132630261-2c82069965ad?q=80&w=400')"></div>
-            <div class="blog-content">
-                <h4>歐洲生活落地第一步</h4>
-                <p>從接機、電話卡到銀行開戶，讓 Euro Living 陪你跨出舒適圈...</p>
-                <a href="#" class="read-more">閱讀全文 →</a>
-            </div>
+        <div class="highlight-box">
+            <strong>真正會遇到的生活大小事，我們都能處理</strong><br>
+            從電話卡到醫療保險，從銀行開戶到緊急翻譯，讓您安心適應新環境。
         </div>
     </div>
+</div>
 
-    <div style="text-align: center; margin-top: 60px;">
-        <a href="mailto:info@euroliving.net" class="cta-btn" style="display: inline-block; background: var(--main-gold); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold;">立即預約諮詢</a>
+<div class="container" id="blog">
+    <div class="section-title"><h2>最新專欄</h2></div>
+    <div class="grid">
+        <div class="card"><h4>西班牙居留辦理全攻略</h4><p>專業律師告訴你最常見的申請誤區...</p><a href="#">閱讀全文 →</a></div>
+        <div class="card"><h4>留學生租房必看清單</h4><p>遠端代看能幫你省下的不只是機票錢...</p><a href="#">閱讀全文 →</a></div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 Euro Living 歐洲安居家 | www.euroliving.net</p>
-    <p>聯繫我們：info@euroliving.net</p>
+    <p>&copy; 2026 Euro Living 歐洲安居家 | Barcelona, Spain</p>
+    <p>聯繫信箱：info@euroliving.net</p>
 </footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('navMenu');
+        menu.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>

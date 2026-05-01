@@ -4,40 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Living 歐洲安居家 | 專業歐洲落地服務</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root { --main-gold: #c5a059; --dark-blue: #1a2a3a; --light-bg: #f4f7f6; --fb-blue: #1877F2; --ig-pink: #E4405F; --threads-black: #000000; }
         body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; }
         
-        /* 導覽列 */
-        .nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; font-size: 1.3rem; }
-        .social-icons-top { display: flex; gap: 15px; }
-        .social-icons-top a { color: var(--dark-blue); text-decoration: none; font-size: 1.4rem; transition: 0.3s; }
-        .social-icons-top a:hover { color: var(--main-gold); }
-
-        .hero { background: var(--dark-blue); color: white; padding: 80px 20px; text-align: center; }
-        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; }
+        /* 導覽列優化 */
+        .nav { background: white; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; min-height: 60px; }
+        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; font-size: 1.2rem; font-weight: bold; }
         
+        .social-icons-top { display: flex; align-items: center; gap: 18px; }
+        .social-icons-top a { color: var(--dark-blue); text-decoration: none; font-size: 1.5rem; display: inline-block; transition: transform 0.2s, color 0.2s; }
+        .social-icons-top a:hover { color: var(--main-gold); transform: scale(1.1); }
+
+        /* 區塊樣式 */
+        .hero { background: var(--dark-blue); color: white; padding: 70px 20px; text-align: center; }
+        .hero h2 { font-size: 2rem; margin-bottom: 10px; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 30px; border-radius: 12px; border-top: 5px solid var(--main-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card h3 { color: var(--dark-blue); margin-top: 0; }
+        .card { background: white; padding: 30px; border-radius: 12px; border-top: 5px solid var(--main-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
         .price-tag { display: inline-block; background: #fff5e6; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #d35400; margin: 10px 0; font-size: 0.9rem; }
         
-        /* 社群追蹤區 */
+        /* 社群區塊 */
         .social-section { background: white; padding: 50px 20px; text-align: center; margin-top: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .social-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 25px; }
-        .social-btn { display: flex; align-items: center; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; min-width: 140px; justify-content: center; }
+        .social-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
+        .social-btn { display: flex; align-items: center; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; min-width: 130px; justify-content: center; }
         .btn-ig { background: var(--ig-pink); }
         .btn-threads { background: var(--threads-black); }
         .btn-fb { background: var(--fb-blue); }
-        .social-btn:hover { opacity: 0.8; transform: scale(1.05); }
-        .social-btn i { margin-right: 10px; font-size: 1.2rem; }
+        .social-btn i { margin-right: 8px; font-size: 1.2rem; }
         
-        .cta-btn { display: inline-block; background: var(--main-gold); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); }
-        footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 60px; font-size: 0.9rem; }
+        .cta-btn { display: inline-block; background: var(--main-gold); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
+        footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 60px; font-size: 0.85rem; }
     </style>
 </head>
 <body>
@@ -45,9 +43,9 @@
 <div class="nav">
     <h1>EURO LIVING 歐洲安居家</h1>
     <div class="social-icons-top">
+        <a href="https://www.facebook.com/share/1BBk4G2nhR/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
         <a href="https://www.instagram.com/euroliving.tw" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://www.threads.net/@euroliving.tw" target="_blank" title="Threads"><i class="fa-brands fa-threads"></i></a>
-        <a href="https://www.facebook.com/share/1BBk4G2nhR/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
     </div>
 </div>
 
@@ -68,25 +66,21 @@
                 <li>VIP 組合 (249€)</li>
             </ul>
         </div>
-
         <div class="card">
             <h3>🪪 居留法務諮詢</h3>
             <p>與專業律師團隊合作，處理簽證、住家證明及文件審核。</p>
             <div class="price-tag">專業辦理 39,000 NT</div>
             <ul>
                 <li>CITA 遞件申請</li>
-                <li>官方翻譯與認證</li>
                 <li>NIE / 居留證辦理</li>
             </ul>
         </div>
-
         <div class="card">
             <h3>🏠 房產與住房代看</h3>
             <p>遠端代看、租房諮詢，幫您在抵達前解決「住」的大事。</p>
             <div class="price-tag">代看服務 25,000 NT 起</div>
             <ul>
                 <li>精選房源推薦</li>
-                <li>房屋代管與代租</li>
                 <li>買房投資諮詢</li>
             </ul>
         </div>
@@ -96,15 +90,9 @@
         <h3>追蹤我們的歐洲生活</h3>
         <p>獲取最新的歐洲生活資訊、租房案例與留學攻略</p>
         <div class="social-grid">
-            <a href="https://www.instagram.com/euroliving.tw" class="social-btn btn-ig" target="_blank">
-                <i class="fa-brands fa-instagram"></i> Instagram
-            </a>
-            <a href="https://www.threads.net/@euroliving.tw" class="social-btn btn-threads" target="_blank">
-                <i class="fa-brands fa-threads"></i> Threads
-            </a>
-            <a href="https://www.facebook.com/share/1BBk4G2nhR/" class="social-btn btn-fb" target="_blank">
-                <i class="fa-brands fa-facebook"></i> Facebook
-            </a>
+            <a href="https://www.facebook.com/share/1BBk4G2nhR/" class="social-btn btn-fb" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/euroliving.tw" class="social-btn btn-ig" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="https://www.threads.net/@euroliving.tw" class="social-btn btn-threads" target="_blank"><i class="fa-brands fa-threads"></i> Threads</a>
         </div>
     </div>
 

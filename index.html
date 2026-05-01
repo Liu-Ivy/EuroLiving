@@ -233,7 +233,7 @@
     </div>
 </section>
 
-    <!-- 關於我們區塊 -->
+   <!-- 關於我們區塊 -->
 <section class="section-about" id="about">
     <div class="about-intro">
         <h3>關於我們 ABOUT US</h3>
@@ -296,6 +296,17 @@
         </div>
     </div>
 </section>
+
+<script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const myNav = document.getElementById('myNav');
+    const navLinks = document.querySelectorAll('.nav-overlay a');
+
+    hamburgerBtn.addEventListener('click', () => { myNav.classList.add('active'); });
+    closeBtn.addEventListener('click', () => { myNav.classList.remove('active'); });
+    navLinks.forEach(link => { link.addEventListener('click', () => { myNav.classList.remove('active'); }); });
+</script>
     
 <section class="section-dark" id="whyus">
     <div class="container">

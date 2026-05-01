@@ -4,37 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Living 歐洲安居家 | 專業歐洲落地服務</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         :root { --main-gold: #c5a059; --dark-blue: #1a2a3a; --light-bg: #f4f7f6; --fb-blue: #1877F2; --ig-pink: #E4405F; --threads-black: #000000; }
-        body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; }
+        body { font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", sans-serif; margin: 0; background: var(--light-bg); color: #333; line-height: 1.6; scroll-behavior: smooth; }
         
-        /* 導覽列優化 */
-        .nav { background: white; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; min-height: 60px; }
-        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; font-size: 1.2rem; font-weight: bold; }
+        /* 導覽列 */
+        .nav { background: white; padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav h1 { margin: 0; color: var(--dark-blue); letter-spacing: 2px; font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark-blue); font-weight: bold; font-size: 0.9rem; }
+        .nav-links a:hover { color: var(--main-gold); }
         
-        .social-icons-top { display: flex; align-items: center; gap: 18px; }
-        .social-icons-top a { color: var(--dark-blue); text-decoration: none; font-size: 1.5rem; display: inline-block; transition: transform 0.2s, color 0.2s; }
-        .social-icons-top a:hover { color: var(--main-gold); transform: scale(1.1); }
+        .social-icons-top { display: flex; gap: 15px; border-left: 1px solid #ddd; padding-left: 15px; }
+        .social-icons-top a { color: var(--dark-blue); font-size: 1.3rem; transition: 0.2s; }
+        .social-icons-top a:hover { color: var(--main-gold); }
 
-        /* 區塊樣式 */
         .hero { background: var(--dark-blue); color: white; padding: 70px 20px; text-align: center; }
-        .hero h2 { font-size: 2rem; margin-bottom: 10px; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* Blog 區塊樣式 */
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h2 { color: var(--dark-blue); font-size: 2rem; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title h2::after { content: ''; width: 50px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+        .blog-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); }
+        .blog-img { width: 100%; height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center; color: #888; font-size: 0.9rem; background-size: cover; background-position: center; }
+        .blog-content { padding: 20px; }
+        .blog-content h4 { margin: 0 0 10px 0; color: var(--dark-blue); }
+        .blog-content p { font-size: 0.85rem; color: #666; margin-bottom: 15px; }
+        .read-more { color: var(--main-gold); text-decoration: none; font-weight: bold; font-size: 0.85rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
         .card { background: white; padding: 30px; border-radius: 12px; border-top: 5px solid var(--main-gold); box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
-        .price-tag { display: inline-block; background: #fff5e6; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: #d35400; margin: 10px 0; font-size: 0.9rem; }
         
-        /* 社群區塊 */
-        .social-section { background: white; padding: 50px 20px; text-align: center; margin-top: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .social-grid { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 25px; }
-        .social-btn { display: flex; align-items: center; padding: 12px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; min-width: 130px; justify-content: center; }
-        .btn-ig { background: var(--ig-pink); }
-        .btn-threads { background: var(--threads-black); }
-        .btn-fb { background: var(--fb-blue); }
-        .social-btn i { margin-right: 8px; font-size: 1.2rem; }
-        
-        .cta-btn { display: inline-block; background: var(--main-gold); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: bold; }
         footer { text-align: center; padding: 40px; background: var(--dark-blue); color: white; margin-top: 60px; font-size: 0.85rem; }
     </style>
 </head>
@@ -42,10 +47,14 @@
 
 <div class="nav">
     <h1>EURO LIVING 歐洲安居家</h1>
-    <div class="social-icons-top">
-        <a href="https://www.facebook.com/share/1BBk4G2nhR/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/euroliving.tw" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.threads.net/@euroliving.tw" target="_blank" title="Threads"><i class="fa-brands fa-threads"></i></a>
+    <div class="nav-links">
+        <a href="#services">服務項目</a>
+        <a href="#blog">最新專欄</a>
+        <div class="social-icons-top">
+            <a href="https://www.facebook.com/share/1BBk4G2nhR/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/euroliving.tw" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.threads.net/@euroliving.tw" target="_blank"><i class="fa-brands fa-threads"></i></a>
+        </div>
     </div>
 </div>
 
@@ -55,49 +64,59 @@
 </section>
 
 <div class="container">
+    <div id="services" class="section-title">
+        <h2>專業服務</h2>
+    </div>
     <div class="grid">
         <div class="card">
             <h3>🚗 專業接機服務</h3>
-            <p>由專業車隊或中文人士陪同，確保您下飛機後的首站安全無憂。</p>
-            <div class="price-tag">99€ 起</div>
-            <ul>
-                <li>中文人士陪同接機</li>
-                <li>專業車隊服務 (199€)</li>
-                <li>VIP 組合 (249€)</li>
-            </ul>
+            <p>確保您下飛機後的首站安全無憂。</p>
+            <ul><li>99€ 起 / 中文陪同</li></ul>
         </div>
         <div class="card">
             <h3>🪪 居留法務諮詢</h3>
-            <p>與專業律師團隊合作，處理簽證、住家證明及文件審核。</p>
-            <div class="price-tag">專業辦理 39,000 NT</div>
-            <ul>
-                <li>CITA 遞件申請</li>
-                <li>NIE / 居留證辦理</li>
-            </ul>
+            <p>專業律師團隊處理簽證與文件。</p>
+            <ul><li>專業辦理 39,000 NT</li></ul>
         </div>
         <div class="card">
             <h3>🏠 房產與住房代看</h3>
-            <p>遠端代看、租房諮詢，幫您在抵達前解決「住」的大事。</p>
-            <div class="price-tag">代看服務 25,000 NT 起</div>
-            <ul>
-                <li>精選房源推薦</li>
-                <li>買房投資諮詢</li>
-            </ul>
+            <p>遠端代看，解決抵達前的住處問題。</p>
+            <ul><li>代看服務 25,000 NT 起</li></ul>
         </div>
     </div>
 
-    <div class="social-section">
-        <h3>追蹤我們的歐洲生活</h3>
-        <p>獲取最新的歐洲生活資訊、租房案例與留學攻略</p>
-        <div class="social-grid">
-            <a href="https://www.facebook.com/share/1BBk4G2nhR/" class="social-btn btn-fb" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
-            <a href="https://www.instagram.com/euroliving.tw" class="social-btn btn-ig" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-            <a href="https://www.threads.net/@euroliving.tw" class="social-btn btn-threads" target="_blank"><i class="fa-brands fa-threads"></i> Threads</a>
+    <div id="blog" class="section-title">
+        <h2>最新專欄</h2>
+    </div>
+    <div class="blog-grid">
+        <div class="blog-card">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1543783232-260174b1e22c?q=80&w=400')"></div>
+            <div class="blog-content">
+                <h4>西班牙居留辦理全攻略</h4>
+                <p>第一次辦理 NIE 需要注意什麼？專業律師告訴你最常見的申請誤區...</p>
+                <a href="#" class="read-more">閱讀全文 →</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=400')"></div>
+            <div class="blog-content">
+                <h4>留學生租房必看清單</h4>
+                <p>在歐洲租房如何避免合約陷阱？遠端代看能幫你省下的不只是機票錢...</p>
+                <a href="#" class="read-more">閱讀全文 →</a>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1493132630261-2c82069965ad?q=80&w=400')"></div>
+            <div class="blog-content">
+                <h4>歐洲生活落地第一步</h4>
+                <p>從接機、電話卡到銀行開戶，讓 Euro Living 陪你跨出舒適圈...</p>
+                <a href="#" class="read-more">閱讀全文 →</a>
+            </div>
         </div>
     </div>
 
-    <div style="text-align: center; margin-top: 40px;">
-        <a href="mailto:info@euroliving.net" class="cta-btn">立即預約諮詢</a>
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="mailto:info@euroliving.net" class="cta-btn" style="display: inline-block; background: var(--main-gold); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold;">立即預約諮詢</a>
     </div>
 </div>
 

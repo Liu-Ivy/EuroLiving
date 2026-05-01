@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Euro Living 歐洲安居家 | 西班牙專業安家落地服務</title>
-    <!-- 引入 Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         :root { 
@@ -14,6 +13,7 @@
             --white: #ffffff;
             --text-main: #2c3e50;
             --text-muted: #7f8c8d;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * { box-sizing: border-box; }
@@ -21,17 +21,19 @@
         
         body { 
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; 
-            margin: 0; background: var(--soft-bg); color: var(--text-main); line-height: 1.7; 
+            margin: 0; background: var(--soft-bg); color: var(--text-main); line-height: 1.8; 
+            overflow-x: hidden;
         }
 
-        /* --- 導覽列優化：左側 Logo 更有厚度感 --- */
+        /* --- 導覽列 --- */
         .navbar { 
-            background: var(--white); 
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(10px);
             padding: 0.8rem 2rem; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05); 
             position: sticky; 
             top: 0; 
             z-index: 2000; 
@@ -41,117 +43,129 @@
         .logo-area h1 { 
             margin: 0; 
             color: var(--dark-blue); 
-            font-size: 1.5rem; 
-            letter-spacing: 4px; 
+            font-size: 1.4rem; 
+            letter-spacing: 3px; 
             font-weight: 800; 
             line-height: 1.1;
         }
         .logo-area span { 
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             color: var(--main-gold); 
-            letter-spacing: 1.5px; 
+            letter-spacing: 1px; 
             font-weight: 600;
             text-transform: uppercase;
-            margin-top: 2px;
         }
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
         
         .social-links { display: flex; gap: 15px; border-right: 1px solid #eee; padding-right: 20px; }
-        .social-links a { color: var(--dark-blue); font-size: 1.1rem; transition: 0.3s; }
+        .social-links a { color: var(--dark-blue); font-size: 1.1rem; transition: var(--transition); }
         .social-links a:hover { color: var(--main-gold); transform: translateY(-2px); }
 
-        /* 修正後的漢堡選單：線條絕對整齊 */
         .hamburger { 
             cursor: pointer; 
             display: flex; 
             flex-direction: column; 
             justify-content: space-between;
-            width: 26px;
+            width: 24px;
             height: 16px;
+            transition: var(--transition);
         }
         .hamburger span { 
             display: block; 
             width: 100%; 
             height: 2px; 
             background-color: var(--dark-blue); 
-            border-radius: 4px;
+            border-radius: 2px;
         }
 
         /* --- 全螢幕選單 --- */
         .nav-overlay { 
             position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
-            background: rgba(26, 42, 58, 0.98); z-index: 3000; 
+            background: var(--dark-blue); z-index: 3000; 
             display: flex; flex-direction: column; align-items: center; justify-content: center; 
             transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
         }
         .nav-overlay.active { right: 0; }
         .nav-overlay a { 
             color: white; text-decoration: none; font-size: 1.8rem; margin: 15px 0; 
-            font-weight: 300; letter-spacing: 4px; transition: 0.3s; 
+            font-weight: 300; letter-spacing: 4px; transition: var(--transition); 
         }
-        .nav-overlay a:hover { color: var(--main-gold); }
-        .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; line-height: 1; }
+        .nav-overlay a:hover { color: var(--main-gold); padding-left: 10px; }
+        .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
 
-        /* --- Hero 區塊：精選巴塞隆納 Skyline --- */
+        /* --- Hero --- */
         .hero { 
-            /* 選用與您連結風格一致的巴塞隆納城市格狀天際線圖 */
-            background: linear-gradient(rgba(26, 42, 58, 0.5), rgba(26, 42, 58, 0.7)), 
+            background: linear-gradient(rgba(26, 42, 58, 0.4), rgba(26, 42, 58, 0.6)), 
                         url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover; 
             background-position: center; 
-            background-repeat: no-repeat;
             color: white; 
-            padding: 180px 20px; 
+            padding: 120px 20px; 
             text-align: center; 
-            min-height: 600px;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        /* 確保桌面版有視差效果 */
-        @media (min-width: 992px) {
-            .hero { background-attachment: fixed; }
+            background-attachment: fixed;
         }
 
-        .hero-content { max-width: 900px; margin: auto; }
-        .hero h2 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 800; letter-spacing: 3px; text-shadow: 0 4px 20px rgba(0,0,0,0.6); }
-        .hero p { font-size: 1.3rem; opacity: 0.95; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
+        .hero-content { max-width: 800px; }
+        .hero h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 800; letter-spacing: 2px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 40px; }
 
-        /* --- 區塊設計 --- */
-        .section-light { padding: 100px 20px; background: var(--soft-bg); }
-        .section-white { padding: 100px 20px; background: var(--white); }
-        .section-dark { padding: 100px 20px; background: var(--dark-blue); color: white; }
+        /* --- 區塊通用 --- */
+        section { padding: 100px 20px; }
+        .container { max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 15px; color: var(--dark-blue); }
+        .section-title .divider { width: 50px; height: 3px; background: var(--main-gold); margin: 0 auto; }
 
-        .container { max-width: 1100px; margin: auto; }
-        .section-title { text-align: center; margin-bottom: 70px; }
-        .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 20px; }
-        .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
-
-        /* 卡片 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
+        /* --- 卡片設計 --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { 
+            background: var(--white); border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: var(--transition);
+        }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card-img { width: 100%; height: 260px; background-size: cover; background-position: center; }
-        .card-content { padding: 40px; }
-        .card h3 { margin-top: 0; color: var(--dark-blue); }
+        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; }
+        .card-content { padding: 30px; }
+        .card h3 { color: var(--dark-blue); margin-top: 0; font-size: 1.4rem; }
+
+        /* --- 理念區塊 (優化版) --- */
+        .about-box-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 25px; 
+            margin-top: 50px;
+        }
+        .about-item {
+            background: white; padding: 40px 25px; border-radius: 15px; text-align: center;
+            transition: var(--transition); border: 1px solid rgba(0,0,0,0.03);
+        }
+        .about-item:hover { border-color: var(--main-gold); transform: translateY(-5px); }
+        .about-item i { font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px; }
 
         .cta-btn { 
             display: inline-block; background: var(--main-gold); color: white; 
-            padding: 20px 60px; text-decoration: none; border-radius: 50px; 
-            font-weight: bold; font-size: 1.1rem; transition: 0.3s; 
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.4);
+            padding: 18px 50px; text-decoration: none; border-radius: 50px; 
+            font-weight: bold; transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.3);
         }
-        .cta-btn:hover { transform: translateY(-3px); background: #b08d4a; box-shadow: 0 15px 35px rgba(197, 160, 89, 0.5); }
+        .cta-btn:hover { background: #b08d4a; box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4); }
 
-        footer { background: #f0f2f5; text-align: center; padding: 80px 20px; color: var(--text-muted); border-top: 1px solid #eee; }
+        footer { background: #f8f9fa; text-align: center; padding: 60px 20px; border-top: 1px solid #eee; }
+        
+        @media (max-width: 768px) {
+            section { padding: 60px 20px; }
+            .hero { background-attachment: scroll; }
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar">
-    <div class="logo-area" onclick="window.scrollTo(0,0)">
+    <div class="logo-area" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
         <h1>EURO LIVING</h1>
         <span>Relocation & Lifestyle</span>
     </div>
@@ -161,25 +175,21 @@
             <a href="https://www.instagram.com/euroliving.tw" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.threads.net/@euroliving.tw" target="_blank"><i class="fa-brands fa-threads"></i></a>
         </div>
-        <!-- 修正過的漢堡選單 -->
         <div class="hamburger" id="hamburgerBtn">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </div>
 </nav>
 
+<!-- 全螢幕選單 -->
 <div id="myNav" class="nav-overlay">
     <span class="close-btn" id="closeBtn">&times;</span>
     <a href="#about">關於我們</a>
     <a href="#services">服務內容</a>
-    <a href="#housing">住宿安排</a>
     <a href="#whyus">為什麼選我們</a>
     <a href="#blog">最新專欄</a>
 </div>
 
-<!-- Hero Section: 使用巴塞隆納城市全景 -->
 <section class="hero">
     <div class="hero-content">
         <h2>讓您的西班牙生活輕鬆落地</h2>
@@ -188,10 +198,14 @@
     </div>
 </section>
 
-<!-- 內容區塊 (ID 確保跳轉正確) -->
-<section class="section-light" id="about">
+<!-- 關於我們區塊：合併核心理念 -->
+<section id="about">
     <div class="container">
-        <div class="section-title"><h2>適合這樣的您</h2></div>
+        <div class="section-title">
+            <h3 style="color: var(--main-gold); font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase;">About Us</h3>
+            <h2>我們服務的對象</h2>
+            <div class="divider"></div>
+        </div>
         <div class="grid">
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600')"></div>
@@ -208,14 +222,40 @@
                 </div>
             </div>
         </div>
+
+        <div class="about-box-grid">
+            <div class="about-item">
+                <i class="fas fa-fingerprint"></i>
+                <h4>非傳統代辦</h4>
+                <p>我們是您在歐洲的夥伴，陪您面對語言與制度的挑戰。</p>
+            </div>
+            <div class="about-item">
+                <i class="fas fa-anchor"></i>
+                <h4>在地支援</h4>
+                <p>提供長期穩定的支援系統，協助您建立真正的安全感。</p>
+            </div>
+            <div class="about-item">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>有人在的精神</h4>
+                <p>最重要的不是資訊，而是「有人在」的溫度，隨時回應需求。</p>
+            </div>
+            <div class="about-item">
+                <i class="fas fa-house-user"></i>
+                <h4>真正在地化</h4>
+                <p>透過我們的引導，讓西班牙不再陌生，成為您真正的家。</p>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="section-white" id="services">
+<section id="services" style="background: white;">
     <div class="container">
-        <div class="section-title"><h2>專業服務內容</h2></div>
+        <div class="section-title">
+            <h2>專業服務內容</h2>
+            <div class="divider"></div>
+        </div>
         <div class="grid">
-            <div class="card" id="housing">
+            <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>簽證與住宿安排</h3>
@@ -233,91 +273,44 @@
     </div>
 </section>
 
-<!-- 關於我們：小方塊排版版 -->
-<section class="section-padding bg-light" id="about">
+<section id="whyus" style="background: var(--dark-blue); color: white;">
     <div class="container">
         <div class="section-title">
-            <h3 style="color: var(--main-gold); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase;">About Us</h3>
-            <h2>核心理念</h2>
+            <h2 style="color: white;">為什麼選我們</h2>
+            <div class="divider"></div>
         </div>
-
-        <!-- 小方塊容器 -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-            
-            <!-- 方塊 1 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-fingerprint"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">非傳統代辦</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">我們不是冷冰冰的中介，而是您在歐洲的夥伴，陪您面對語言與制度的挑戰。</p>
-            </div>
-
-            <!-- 方塊 2 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-anchor"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">在地支援</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">提供長期穩定的支援系統，協助您理解當地制度，建立真正的安全感。</p>
-            </div>
-
-            <!-- 方塊 3 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-hand-holding-heart"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">有人在的精神</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">我們相信最重要的不是資訊，而是「有人在」的溫度，隨時回應您的需求。</p>
-            </div>
-
-            <!-- 方塊 4 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-house-user"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">真正在地化</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">讓西班牙不再只是陌生的國度，透過我們的引導，讓這裡成為您真正的家。</p>
-            </div>
-
-        </div>
-    </div>
-</section>
->
-    
-<section class="section-dark" id="whyus">
-    <div class="container">
-        <div class="section-title"><h2>為什麼選我們</h2></div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; text-align: center;">
+        <div class="grid" style="text-align: center;">
             <div>
-                <i class="fas fa-map-marked-alt" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
+                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>真正西班牙在地</h4>
-                <p>我們長期駐守當地，非遠端代辦，能即時處理任何突發狀況。</p>
+                <p style="opacity: 0.8;">長期駐守當地，非遠端代辦，能即時處理任何突發狀況。</p>
             </div>
             <div>
-                <i class="fas fa-user-check" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
+                <i class="fas fa-user-check" style="font-size: 3rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>全程現場陪同</h4>
-                <p>拒絕雞同鴨講。專業人員全程陪同辦理手續，溝通無礙更有保障。</p>
+                <p style="opacity: 0.8;">專業人員全程陪同辦理手續，溝通無礙更有保障。</p>
             </div>
             <div>
-                <i class="fas fa-gem" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
+                <i class="fas fa-gem" style="font-size: 3rem; color: var(--main-gold); margin-bottom: 20px;"></i>
                 <h4>您的長期後盾</h4>
-                <p>收費透明誠信，服務不僅限於落地，是您在歐生活的長久靠山。</p>
+                <p style="opacity: 0.8;">收費透明誠信，服務不僅限於落地，是您在歐生活的長久靠山。</p>
             </div>
         </div>
     </div>
 </section>
-    
 
-<section class="section-white" id="blog">
+<section id="blog">
     <div class="container">
-        <div class="section-title"><h2>最新專欄</h2></div>
+        <div class="section-title">
+            <h2>最新專欄</h2>
+            <div class="divider"></div>
+        </div>
         <div class="grid">
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>西班牙居留最速攻略</h3>
-                    <p>2024年最新辦理流程與注意事項，避開常見代辦陷阱...</p>
+                    <p>2026年最新辦理流程與注意事項，避開常見代辦陷阱...</p>
                 </div>
             </div>
         </div>
@@ -325,8 +318,10 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 Euro Living 歐洲安居家 | Barcelona & Madrid, Spain</p>
-    <p>服務聯繫：info@euroliving.net</p>
+    <div class="container">
+        <p>&copy; 2026 Euro Living 歐洲安居家 | Barcelona & Madrid, Spain</p>
+        <p>服務聯繫：<a href="mailto:info@euroliving.net" style="color: var(--main-gold); text-decoration: none;">info@euroliving.net</a></p>
+    </div>
 </footer>
 
 <script>
@@ -335,20 +330,13 @@
     const myNav = document.getElementById('myNav');
     const navLinks = document.querySelectorAll('.nav-overlay a');
 
-    // 開啟選單
-    hamburgerBtn.addEventListener('click', () => { 
-        myNav.classList.add('active'); 
-    });
+    hamburgerBtn.addEventListener('click', () => { myNav.classList.add('active'); });
+    closeBtn.addEventListener('click', () => { myNav.classList.remove('active'); });
 
-    // 關閉選單
-    closeBtn.addEventListener('click', () => { 
-        myNav.classList.remove('active'); 
-    });
-
-    // 點擊選單連結後自動關閉並跳轉
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', function(e) {
             myNav.classList.remove('active');
+            // 這裡可以加入平滑捲動的微調，如果瀏覽器原生 support 較差的話
         });
     });
 </script>

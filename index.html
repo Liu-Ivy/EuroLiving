@@ -72,11 +72,13 @@
         .section-padding { padding: 100px 20px; }
         .section-light { background: var(--soft-bg); }
         .section-white { background: var(--white); }
+        .section-dark { background: #f8f9fa; border-top: 1px solid #eee; } /* 用於 Why Us 區塊 */
         
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
             font-size: 2.2rem; position: relative; display: inline-block; 
             padding-bottom: 25px; 
+            color: var(--dark-blue);
         }
         .section-title h2::after { 
             content: ''; width: 60px; height: 3px; background: var(--main-gold); 
@@ -117,53 +119,28 @@
         .expand-btn:hover { background: var(--main-gold); color: white; }
         .expand-btn i { transition: transform 0.3s; margin-left: 8px; }
         
-        .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
         .details-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+        .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
         .details-content ul { list-style: none; padding: 0; margin: 0; }
         .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.92rem; }
         .details-content li i { color: var(--main-gold); margin-right: 10px; margin-top: 5px; font-size: 0.8rem; }
 
-        /* --- 核心理念小方塊 --- */
-        .about-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-            gap: 25px; 
-            margin-top: 40px;
-        }
+        /* --- 核心理念小方塊 (About Box) --- */
+        .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
         .about-box {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transition: 0.3s;
-            border-bottom: 3px solid transparent;
+            background: var(--white); padding: 40px 30px; border-radius: 12px; text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; border-bottom: 3px solid transparent;
         }
-        .about-box:hover {
-            transform: translateY(-5px);
-            border-bottom: 3px solid var(--main-gold);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-        .about-box i {
-            font-size: 2.5rem;
-            color: var(--main-gold);
-            margin-bottom: 20px;
-            display: block;
-        }
-        .about-box h4 {
-            color: var(--dark-blue);
-            font-size: 1.25rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .about-box p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.8;
-        }
+        .about-box:hover { transform: translateY(-5px); border-bottom: 3px solid var(--main-gold); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .about-box i { font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px; display: block; }
+        .about-box h4 { color: var(--dark-blue); font-size: 1.25rem; margin-bottom: 15px; font-weight: 700; }
+        .about-box p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
-        footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); }
+        /* --- 為什麼選擇我們 (Why Us) --- */
+        .why-us-item h4 { font-size: 1.4rem; color: var(--dark-blue); margin-bottom: 15px; }
+        .why-us-item p { color: var(--text-muted); max-width: 300px; margin: 0 auto; }
+
+        footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); border-top: 1px solid #e0e0e0; }
     </style>
 </head>
 <body>
@@ -188,6 +165,7 @@
     <a href="#target-audience">適合對象</a>
     <a href="#services">服務內容</a>
     <a href="#about">核心理念</a>
+    <a href="#whyus">為什麼選擇我們</a>
     <a href="#blog">最新專欄</a>
 </div>
 
@@ -202,9 +180,7 @@
 <!-- 適合對象 -->
 <section class="section-padding section-light" id="target-audience">
     <div class="container">
-        <div class="section-title">
-            <h2>適合這樣的您</h2>
-        </div>
+        <div class="section-title"><h2>適合這樣的您</h2></div>
         <div class="grid">
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
@@ -258,9 +234,7 @@
 <!-- 專業服務內容 -->
 <section class="section-padding section-white" id="services">
     <div class="container">
-        <div class="section-title">
-            <h2>專業服務內容</h2>
-        </div>
+        <div class="section-title"><h2>專業服務內容</h2></div>
         <div class="services-grid">
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
@@ -322,12 +296,10 @@
     </div>
 </section>
 
-<!-- 關於我們：核心理念小方塊區塊 -->
+<!-- 核心理念 (About) -->
 <section class="section-padding section-light" id="about">
     <div class="container">
-        <div class="section-title">
-            <h2>核心理念</h2>
-        </div>
+        <div class="section-title"><h2>核心理念</h2></div>
         <div class="about-grid">
             <div class="about-box">
                 <i class="fas fa-fingerprint"></i>
@@ -353,7 +325,31 @@
     </div>
 </section>
 
-<!-- 最新專欄 -->
+<!-- 為什麼選擇我們 (Why Us) -->
+<section class="section-padding section-dark" id="whyus">
+    <div class="container">
+        <div class="section-title"><h2>為什麼選擇我們</h2></div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; text-align: center;">
+            <div class="why-us-item">
+                <i class="fas fa-map-marked-alt" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px; display: block;"></i>
+                <h4>真正西班牙在地</h4>
+                <p>我們長期駐守當地，非遠端代辦，能即時處理任何突發狀況。</p>
+            </div>
+            <div class="why-us-item">
+                <i class="fas fa-user-check" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px; display: block;"></i>
+                <h4>全程現場陪同</h4>
+                <p>拒絕雞同鴨講。專業人員全程陪同辦理手續，溝通無礙更有保障。</p>
+            </div>
+            <div class="why-us-item">
+                <i class="fas fa-gem" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px; display: block;"></i>
+                <h4>您的長期後盾</h4>
+                <p>收費透明誠信，服務不僅限於落地，是您在歐生活的長久靠山。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 最新專欄 (Blog) -->
 <section class="section-padding section-white" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
@@ -404,7 +400,6 @@
 
     function toggleCard(cardElement) {
         if (event.target.closest('a')) return;
-        
         cardElement.classList.toggle('active');
         const btn = cardElement.querySelector('.expand-btn');
         if (btn && btn.tagName.toLowerCase() !== 'a') {

@@ -58,7 +58,7 @@
         .nav-overlay a { color: white; text-decoration: none; font-size: 1.8rem; margin: 15px 0; font-weight: 300; letter-spacing: 4px; }
         .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
 
-        /* --- Hero --- */
+        /* --- Hero (保持原背景) --- */
         .hero { 
             background: linear-gradient(rgba(26, 42, 58, 0.5), rgba(26, 42, 58, 0.7)), 
                         url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1600&auto=format&fit=crop'); 
@@ -71,12 +71,11 @@
         .container { max-width: 1100px; margin: auto; }
         .section-light { padding: 100px 20px; background: var(--soft-bg); }
         .section-white { padding: 100px 20px; background: var(--white); }
-        .section-dark { padding: 100px 20px; background: var(--dark-blue); color: white; }
-
+        
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
             font-size: 2.2rem; position: relative; display: inline-block; 
-            padding-bottom: 25px; /* 增加下影線間距 */
+            padding-bottom: 25px; 
         }
         .section-title h2::after { 
             content: ''; width: 60px; height: 3px; background: var(--main-gold); 
@@ -85,7 +84,7 @@
 
         /* --- 卡片設計 --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } /* 優化為 2x2 */
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } 
         
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
@@ -150,7 +149,7 @@
     </div>
 </section>
 
-<!-- 適合這樣的您 -->
+<!-- 適合這樣的您 - 更換為故事感圖片 -->
 <section class="section-light" id="target-audience">
     <div class="container">
         <div class="section-title">
@@ -159,7 +158,8 @@
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600')"></div>
+                <!-- 圖片：溫馨家庭在歐洲街道 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>華人家庭</h3>
                     <p>為移居西班牙的家庭提供溫暖護航，專注於生活穩定與教育。</p>
@@ -174,7 +174,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523240715181-2f0f9f20dd98?q=80&w=600')"></div>
+                <!-- 圖片：學生在古老校園或閱讀 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756eaa43f?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>留學生</h3>
                     <p>排除求學行政障礙，讓您在異國專注於學業與成長。</p>
@@ -189,7 +190,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-148441785559c-44c650dfe122?q=80&w=600')"></div>
+                <!-- 圖片：數位遊牧在咖啡廳工作 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
                     <p>快速解決落地庶務，銜接高品質地中海生活方式。</p>
@@ -207,7 +209,7 @@
     </div>
 </section>
 
-<!-- 專業服務內容 - 2x2 優化排版 -->
+<!-- 專業服務內容 - 更換為情境相關圖片 -->
 <section class="section-white" id="services">
     <div class="container">
         <div class="section-title">
@@ -216,7 +218,8 @@
         </div>
         <div class="services-grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1554126807-6b10f6f6692a?q=80&w=600')"></div>
+                <!-- 圖片：護照與文件 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>簽證 / 居留</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -229,7 +232,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589330273594-fade1ee91647?q=80&w=600')"></div>
+                <!-- 圖片：印章與公文 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>文件認證</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -242,7 +246,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600')"></div>
+                <!-- 圖片：拿鑰匙與房屋內裝 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>住宿安排</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -255,7 +260,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?q=80&w=600')"></div>
+                <!-- 圖片：握手與銀行卡 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0adff456c477?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>落地支援</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -271,13 +277,14 @@
     </div>
 </section>
 
-<!-- 最新專欄 -->
+<!-- 最新專欄 - 更換為更具氛圍的圖片 -->
 <section class="section-light" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600')"></div>
+                <!-- 圖片：筆記與鋼筆 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>西班牙居留必看</h3>
                     <p>了解 2026 最新行政流程與文件細節...</p>
@@ -285,7 +292,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=600')"></div>
+                <!-- 圖片：西班牙風景 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>在地生活觀察</h3>
                     <p>巴塞隆納與馬德里的第一線生活心得分享...</p>
@@ -293,7 +301,8 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600')"></div>
+                <!-- 圖片：兩人在交談 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>服務核心精神</h3>
                     <p>深度解析 Euro Living 的在地支援溫度...</p>
@@ -325,7 +334,7 @@
         content.classList.toggle('active');
         btn.classList.toggle('active');
         btn.innerHTML = content.classList.contains('active') ? 
-            '收起細節 <i class="fas fa-chevron-down"></i>' : 
+            '收起細節 <i class="fas fa-chevron-up"></i>' : 
             (btn.closest('section').id === 'target-audience' ? '了解支援 <i class="fas fa-chevron-down"></i>' : '詳細項目 <i class="fas fa-chevron-down"></i>');
     }
 </script>

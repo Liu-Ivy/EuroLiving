@@ -187,20 +187,75 @@
 <!-- 第一個內容區塊 -->
 <section class="section-light" id="target-audience">
     <div class="container">
-        <div class="section-title"><h2>適合這樣的您</h2></div>
+        <div class="section-title">
+            <h2>適合這樣的您</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-top: -50px; margin-bottom: 50px;">點擊下方按鈕了解我們能為您做什麼</p>
+        </div>
+        
         <div class="grid">
+            <!-- 1. 華人家庭 -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600')"></div>
                 <div class="card-content">
-                    <h3>華人家庭 / 學生</h3>
-                    <p>尋求優質教育與安全居住環境，提供從教育諮詢到落地生活的全方位陪伴。</p>
+                    <h3>華人家庭</h3>
+                    <p>為移居西班牙的家庭提供最溫暖的護航，專注於生活穩定與子女教育。</p>
+                    
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="details-content">
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 國際/私立學校申請諮詢</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 長期租房/買房代看服務</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 家庭醫療保險配套建議</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 陪同辦理住家登記 (Padrón)</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- 2. 留學生 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523240715181-2f0f9f20dd98?q=80&w=600')"></div>
+                <div class="card-content">
+                    <h3>留學生</h3>
+                    <p>讓海外求學路不再迷惘，我們協助您處理繁瑣行政，讓您專心學業。</p>
+                    
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="details-content">
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 學生居留 (NIE) 初次/續卡辦理</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 大學學歷對等與認證輔導</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 學生公寓/分租房間預約與簽約</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 當地銀行學生帳戶開戶陪同</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 數位遊牧 / 工作者 -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
-                    <p>專業處理行政瑣事，讓您專注於事業發展，享受高品質地中海生活。</p>
+                    <p>專為遠端工作者打造，快速解決落地生活庶務，銜接地中海高品質生活。</p>
+                    
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    
+                    <div class="details-content">
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 數位遊牧簽證 (Digital Nomad Visa) 落地諮詢</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 專業 Coworking Space 推薦與申辦</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 高速網路與水電瓦斯合約過戶</li>
+                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 當地稅務申報 (Modelo) 基本引導</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

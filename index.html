@@ -72,7 +72,6 @@
         .section-padding { padding: 100px 20px; }
         .section-light { background: var(--soft-bg); }
         .section-white { background: var(--white); }
-        .section-dark { background: #f8f9fa; border-top: 1px solid #eee; } /* 用於 Why Us 區塊 */
         
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
@@ -102,7 +101,6 @@
             width: 100%; height: 240px; 
             background-size: cover; 
             background-position: center; 
-            background-repeat: no-repeat;
             flex-shrink: 0; 
         }
         
@@ -125,7 +123,7 @@
         .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.92rem; }
         .details-content li i { color: var(--main-gold); margin-right: 10px; margin-top: 5px; font-size: 0.8rem; }
 
-        /* --- 核心理念小方塊 (About Box) --- */
+        /* --- 核心理念小方塊 --- */
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
         .about-box {
             background: var(--white); padding: 40px 30px; border-radius: 12px; text-align: center;
@@ -136,9 +134,9 @@
         .about-box h4 { color: var(--dark-blue); font-size: 1.25rem; margin-bottom: 15px; font-weight: 700; }
         .about-box p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
-        /* --- 為什麼選擇我們 (Why Us) --- */
-        .why-us-item h4 { font-size: 1.4rem; color: var(--dark-blue); margin-bottom: 15px; }
-        .why-us-item p { color: var(--text-muted); max-width: 300px; margin: 0 auto; }
+        /* --- 為什麼選擇我們 --- */
+        .why-us-item h4 { font-size: 1.35rem; color: var(--dark-blue); margin-bottom: 15px; }
+        .why-us-item p { color: var(--text-muted); max-width: 300px; margin: 0 auto; line-height: 1.8; }
 
         footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); border-top: 1px solid #e0e0e0; }
     </style>
@@ -164,8 +162,7 @@
     <span class="close-btn" id="closeBtn">&times;</span>
     <a href="#target-audience">適合對象</a>
     <a href="#services">服務內容</a>
-    <a href="#about">核心理念</a>
-    <a href="#whyus">為什麼選擇我們</a>
+    <a href="#trust-section">關於與優勢</a>
     <a href="#blog">最新專欄</a>
 </div>
 
@@ -177,7 +174,7 @@
     </div>
 </section>
 
-<!-- 適合對象 -->
+<!-- 1. 痛點認知：適合對象 -->
 <section class="section-padding section-light" id="target-audience">
     <div class="container">
         <div class="section-title"><h2>適合這樣的您</h2></div>
@@ -231,7 +228,7 @@
     </div>
 </section>
 
-<!-- 專業服務內容 -->
+<!-- 2. 解決方案：專業服務內容 -->
 <section class="section-padding section-white" id="services">
     <div class="container">
         <div class="section-title"><h2>專業服務內容</h2></div>
@@ -296,11 +293,16 @@
     </div>
 </section>
 
-<!-- 核心理念 (About) -->
-<section class="section-padding section-light" id="about">
+<!-- 3. 信任建立：核心理念 + 為什麼選擇我們 (心理學排列優化) -->
+<section class="section-padding section-light" id="trust-section">
     <div class="container">
-        <div class="section-title"><h2>核心理念</h2></div>
-        <div class="about-grid">
+        <!-- 感性建立：核心理念 -->
+        <div class="section-title">
+            <h2>我們的核心理念</h2>
+            <p style="color: var(--text-muted); margin-top: -20px; font-size: 1rem;">不僅是代辦手續，更是在異國生活的溫度陪伴</p>
+        </div>
+        
+        <div class="about-grid" style="margin-bottom: 100px;">
             <div class="about-box">
                 <i class="fas fa-fingerprint"></i>
                 <h4>非傳統代辦</h4>
@@ -322,13 +324,15 @@
                 <p>透過專業引導，讓巴塞隆納或馬德里成為您真正的家。</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- 為什麼選擇我們 (Why Us) -->
-<section class="section-padding section-dark" id="whyus">
-    <div class="container">
-        <div class="section-title"><h2>為什麼選擇我們</h2></div>
+        <!-- 視覺過渡線 -->
+        <hr style="border: 0; border-top: 1px solid #e0d8c8; margin-bottom: 80px; width: 60%; margin-left: auto; margin-right: auto;">
+
+        <!-- 理性論點：為什麼選擇我們 (引用 image_12.png 內容) -->
+        <div class="section-title">
+            <h2>為什麼選擇我們</h2>
+        </div>
+        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; text-align: center;">
             <div class="why-us-item">
                 <i class="fas fa-map-marked-alt" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px; display: block;"></i>
@@ -349,7 +353,7 @@
     </div>
 </section>
 
-<!-- 最新專欄 (Blog) -->
+<!-- 4. 權威證明：最新專欄 -->
 <section class="section-padding section-white" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
@@ -384,10 +388,11 @@
 
 <footer>
     <p>&copy; 2026 Euro Living 歐洲安居家 | Spain Relocation Specialist</p>
-    <p>info@euroliving.net</p>
+    <p>Email: info@euroliving.net</p>
 </footer>
 
 <script>
+    // 導覽列控制
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const closeBtn = document.getElementById('closeBtn');
     const myNav = document.getElementById('myNav');
@@ -398,14 +403,16 @@
         a.onclick = () => myNav.classList.remove('active');
     });
 
+    // 卡片展開/收合
     function toggleCard(cardElement) {
         if (event.target.closest('a')) return;
+        
         cardElement.classList.toggle('active');
         const btn = cardElement.querySelector('.expand-btn');
         if (btn && btn.tagName.toLowerCase() !== 'a') {
             const isExpanded = cardElement.classList.contains('active');
             const originalText = cardElement.closest('section').id === 'target-audience' ? '了解支援' : '詳細項目';
-            btn.innerHTML = isExpanded ? `收起細節 <i class="fas fa-chevron-down"></i>` : `${originalText} <i class="fas fa-chevron-down"></i>`;
+            btn.innerHTML = isExpanded ? `收起細節 <i class="fas fa-chevron-up"></i>` : `${originalText} <i class="fas fa-chevron-down"></i>`;
         }
     }
 </script>

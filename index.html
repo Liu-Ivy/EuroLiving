@@ -159,8 +159,6 @@
     .expand-btn.active i {
         transform: rotate(180deg);
     }
-</style>
-
 
         .container { max-width: 1100px; margin: auto; }
         .section-title { text-align: center; margin-bottom: 70px; }
@@ -185,6 +183,24 @@
 
         footer { background: #f0f2f5; text-align: center; padding: 80px 20px; color: var(--text-muted); border-top: 1px solid #eee; }
     </style>
+    <script>
+    function toggleDetails(btn) {
+        const content = btn.nextElementSibling;
+        
+        // 切換內容的 active class
+        content.classList.toggle('active');
+        
+        // 切換按鈕本身的 active class (旋轉圖示)
+        btn.classList.toggle('active');
+        
+        // 修改按鈕文字
+        if (content.classList.contains('active')) {
+            btn.innerHTML = '收起細節 <i class="fas fa-chevron-down"></i>';
+        } else {
+            btn.innerHTML = '展開需求細節 <i class="fas fa-chevron-down"></i>';
+        }
+    }
+</script>
 </head>
 <body>
 

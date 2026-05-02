@@ -88,10 +88,16 @@
         
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; display: flex; flex-direction: column; }
+        .card { 
+            background: var(--white); border-radius: 15px; overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; 
+            display: flex; flex-direction: column; height: 100%;
+        }
         .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; position: relative; }
-        .card-content { padding: 30px; flex-grow: 1; }
+        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
+        
+        /* 修正卡片內部對齊，確保按鈕整齊 */
+        .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
         .card-content h3 { color: var(--dark-blue); font-size: 1.5rem; margin-top: 0; margin-bottom: 10px; }
         .card-content .service-intro { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
 
@@ -104,7 +110,6 @@
         .expand-btn:hover { background: var(--main-gold); color: white; }
         .expand-btn i { transition: transform 0.3s; margin-left: 8px; }
         
-        /* 展開後按鈕狀態 */
         .card.active .expand-btn { background: var(--main-gold); color: white; }
         .card.active .expand-btn i { transform: rotate(180deg); }
 
@@ -162,11 +167,10 @@
             <p style="color: var(--text-muted); margin-top: 10px;">量身打造的在地資源方案</p>
         </div>
         <div class="grid">
-            <!-- 每個卡片都有獨立的 ID 或類別，確保 JS 獨立控制 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?q=80&w=600')"></div>
                 <div class="card-content">
-                    <h3>華人家庭</h3>
+                    <h3>家庭</h3>
                     <p class="service-intro">為移居家庭提供溫暖護航，專注於生活穩定、安全與優質教育資源對接。</p>
                     <div class="details-content">
                         <ul>
@@ -179,7 +183,8 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1541339907198-e08756eaa43f?q=80&w=600')"></div>
+                <!-- 修正留學生圖片連結 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-152305085306e-8a3d3ecba3e9?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>留學生</h3>
                     <p class="service-intro">排除求學行政障礙，解決租房陷阱與居留難題，讓您在異國專注於自我成長。</p>
@@ -212,7 +217,7 @@
     </div>
 </section>
 
-<!-- 專業服務內容 - 優化文案與獨立展開 -->
+<!-- 專業服務內容 -->
 <section class="section-white" id="services">
     <div class="container">
         <div class="section-title">
@@ -220,65 +225,58 @@
             <p style="color: var(--text-muted); margin-top: 10px;">不只是辦理文件，更是您在西班牙最可靠的後盾</p>
         </div>
         <div class="services-grid">
-            <!-- 服務 1 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>簽證 / 居留行政</h3>
-                    <p class="service-intro">告別西班牙政府緩慢的行政噩夢，由專業團隊協助您精確準備每一份文件，確保合法居留無虞。</p>
+                    <p class="service-intro">協助您精確準備每一份文件，確保合法居留無虞。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> NIE/TIE 指紋預約 (Cita Previa) 搶辦</li>
-                            <li><i class="fas fa-circle-check"></i> 各類居留續卡、更換與歐盟永居諮詢</li>
-                            <li><i class="fas fa-circle-check"></i> 返鄉證 (Autorización de Regreso) 辦理</li>
+                            <li><i class="fas fa-circle-check"></i> NIE/TIE 指紋預約搶辦</li>
+                            <li><i class="fas fa-circle-check"></i> 各類居留續卡與永居諮詢</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-            <!-- 服務 2 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>文件翻譯與認證</h3>
-                    <p class="service-intro">官方公文不容出錯。我們提供對接專業宣誓翻譯與學歷認證服務，讓您的文件具備完整法律效力。</p>
+                    <p class="service-intro">提供專業宣誓翻譯與學歷認證，確保文件具備完整法律效力。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 西班牙政府認可宣誓翻譯 (Traductor Jurado)</li>
-                            <li><i class="fas fa-circle-check"></i> 中小學/大學學歷對等 (Homologación) 申請</li>
-                            <li><i class="fas fa-circle-check"></i> 無犯罪證明、出生證明之海牙認證對接</li>
+                            <li><i class="fas fa-circle-check"></i> 西班牙政府認可宣誓翻譯</li>
+                            <li><i class="fas fa-circle-check"></i> 學歷對等申請與海牙認證對接</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-            <!-- 服務 3 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>海外安居住宿</h3>
-                    <p class="service-intro">人在海外也能放心租屋。我們為您實地考察房源、審查合約陷阱，守護您的居住正義。</p>
+                    <p class="service-intro">實地考察房源、審查合約陷阱，守護您的居住權益。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 專業房源實地代看：提供視訊與完整報告</li>
-                            <li><i class="fas fa-circle-check"></i> 租賃合約法律條款審核，避免不平等協定</li>
-                            <li><i class="fas fa-circle-check"></i> 入住檢查與水電瓦斯供應契約切換代辦</li>
+                            <li><i class="fas fa-circle-check"></i> 專業房源實地代看提供視訊報告</li>
+                            <li><i class="fas fa-circle-check"></i> 租賃合約法律條款審核</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-            <!-- 服務 4 -->
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556742049-0adff456c477?q=80&w=600')"></div>
+                <!-- 修正落地支援圖片連結 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165833767-027eeea160a7?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>全方位落地支援</h3>
-                    <p class="service-intro">從踏下飛機那刻起，我們陪您解決大大小小的生活庶務，縮短異鄉適應期，快速融入當地。</p>
+                    <p class="service-intro">解決生活庶務，縮短異鄉適應期，快速融入當地。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 本地銀行開戶陪同與申辦指導</li>
-                            <li><i class="fas fa-circle-check"></i> 符合居留要求之私立醫療保險篩選建議</li>
-                            <li><i class="fas fa-circle-check"></i> 交通卡、電話卡、稅號 (Digital Certificate) 申請</li>
+                            <li><i class="fas fa-circle-check"></i> 本地銀行開戶陪同</li>
+                            <li><i class="fas fa-circle-check"></i> 醫療保險諮詢與生活帳戶申辦</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -293,6 +291,7 @@
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
+            <!-- Blog 卡片現在會整齊對齊 -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=600')"></div>
                 <div class="card-content">
@@ -327,7 +326,6 @@
 </footer>
 
 <script>
-    // 導覽列邏輯
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const closeBtn = document.getElementById('closeBtn');
     const myNav = document.getElementById('myNav');
@@ -338,17 +336,11 @@
         a.onclick = () => myNav.classList.remove('active');
     });
 
-    // 修正展開邏輯：確保點擊時只有該卡片展開，不聯動其他卡片
     function toggleCard(cardElement) {
-        // 如果點擊的是 a 標籤（如專欄閱讀原文），則不觸發展開
         if (event.target.tagName.toLowerCase() === 'a' || event.target.parentElement.tagName.toLowerCase() === 'a') {
             return;
         }
-        
-        // 切換目前點擊卡片的 active 類別
         cardElement.classList.toggle('active');
-        
-        // 更新按鈕文字
         const btn = cardElement.querySelector('.expand-btn');
         if (btn) {
             const isExpanded = cardElement.classList.contains('active');

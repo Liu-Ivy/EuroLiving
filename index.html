@@ -82,7 +82,7 @@
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
         }
 
-        /* --- 卡片設計：確保高度一致 --- */
+        /* --- 卡片設計 --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } 
         
@@ -91,23 +91,30 @@
         .card { 
             background: var(--white); border-radius: 15px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; 
-            display: flex; flex-direction: column; height: 100%; /* 關鍵：撐開高度 */
+            display: flex; flex-direction: column; height: 100%;
         }
         .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; flex-shrink: 0; }
         
-        /* 內容區塊對齊優化 */
+        /* 圖片區塊確保填滿且不失真 */
+        .card-img { 
+            width: 100%; height: 240px; 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            flex-shrink: 0; 
+        }
+        
         .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
         .card-content h3 { color: var(--dark-blue); font-size: 1.4rem; margin-top: 0; margin-bottom: 12px; }
-        .card-content p { margin-bottom: 20px; }
-        .card-content .service-intro { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        
+        /* 統一內文高度，確保按鈕整齊 */
+        .service-intro { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
 
-        /* --- 展開按鈕底部固定 --- */
+        /* --- 展開按鈕 --- */
         .expand-btn {
             background: none; border: 1px solid var(--main-gold); color: var(--main-gold);
             padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: 600;
-            margin-top: auto; /* 關鍵：將按鈕推向底部 */
-            width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            margin-top: auto; width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
             text-decoration: none;
         }
         .expand-btn:hover { background: var(--main-gold); color: white; }
@@ -167,7 +174,7 @@
         </div>
         <div class="grid">
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>華人家庭</h3>
                     <p class="service-intro">為移居家庭提供溫暖護航，專注於生活穩定、安全與優質教育資源對接。</p>
@@ -182,8 +189,8 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <!-- 重新更換連結：留學生圖片 -->
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1525921429624-479b6a29d840?q=80&w=600&auto=format&fit=crop')"></div>
+                <!-- 更換更強韌的連結：留學生圖片 -->
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>留學生</h3>
                     <p class="service-intro">排除求學行政障礙，解決租房陷阱與居留難題，讓您在異國專注於自我成長。</p>
@@ -198,7 +205,7 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
                     <p class="service-intro">快速搞定行政落地，助您無縫銜接高品質地中海辦公生活。</p>
@@ -224,7 +231,7 @@
         </div>
         <div class="services-grid">
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>簽證 / 居留行政</h3>
                     <p class="service-intro">精確準備每一份文件，告別西班牙緩慢且複雜的行政流程。</p>
@@ -238,7 +245,7 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/48148/pexels-photo-48148.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>文件翻譯與認證</h3>
                     <p class="service-intro">提供官方宣誓翻譯與學歷認證，確保您的文件具備法律效力。</p>
@@ -252,7 +259,7 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>海外安居住宿</h3>
                     <p class="service-intro">代看房源、審查合約，讓您在踏入西班牙前就安頓好溫暖的家。</p>
@@ -266,8 +273,8 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <!-- 重新更換連結：全方位落地支援圖片 -->
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?q=80&w=600&auto=format&fit=crop')"></div>
+                <!-- 更換更強韌的連結：全方位落地支援圖片 -->
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>全方位落地支援</h3>
                     <p class="service-intro">解決生活瑣事，包含銀行開戶、醫療保險與交通辦理，快速融入在地生活。</p>
@@ -284,13 +291,13 @@
     </div>
 </section>
 
-<!-- 最新專欄：優化排版整齊度 -->
+<!-- 最新專欄 -->
 <section class="section-light" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/6469/red-hands-woman-creative.jpg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>西班牙居留必看</h3>
                     <p class="service-intro">了解 2026 最新行政流程與文件細節，避開常見的申請誤區。</p>
@@ -298,15 +305,15 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>在地生活觀察</h3>
-                    <p class="service-intro">巴塞隆納與馬德里的第一線生活心得分享，帶您看見最真實的西班牙。</p>
+                    <p class="service-intro">巴塞隆納與馬德里的第一線生活心得分享，帶您看見最真實的西班牙生活。</p>
                     <a href="https://www.instagram.com/euroliving.tw/p/DXqGWNFk5Kj/" target="_blank" class="expand-btn">閱讀原文 <i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop')"></div>
+                <div class="card-img" style="background-image: url('https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
                     <h3>服務核心精神</h3>
                     <p class="service-intro">深度解析 Euro Living 的在地支援溫度，為什麼我們能成為您最可靠的後盾。</p>
@@ -334,14 +341,12 @@
     });
 
     function toggleCard(cardElement) {
-        // 點擊連結時不觸展開
-        if (event.target.tagName.toLowerCase() === 'a' || event.target.parentElement.tagName.toLowerCase() === 'a') {
-            return;
-        }
+        // 點擊 Instagram 連結按鈕時不要觸發摺疊
+        if (event.target.closest('a')) return;
         
         cardElement.classList.toggle('active');
         const btn = cardElement.querySelector('.expand-btn');
-        if (btn && !cardElement.querySelector('a.expand-btn')) {
+        if (btn && !btn.tagName.toLowerCase() === 'a') {
             const isExpanded = cardElement.classList.contains('active');
             const originalText = cardElement.closest('section').id === 'target-audience' ? '了解支援' : '詳細項目';
             btn.innerHTML = isExpanded ? `收起細節 <i class="fas fa-chevron-down"></i>` : `${originalText} <i class="fas fa-chevron-down"></i>`;

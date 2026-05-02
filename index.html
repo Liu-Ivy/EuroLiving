@@ -24,7 +24,7 @@
             margin: 0; background: var(--soft-bg); color: var(--text-main); line-height: 1.7; 
         }
 
-        /* --- 導覽列優化 --- */
+        /* --- 導覽列 --- */
         .navbar { 
             background: var(--white); 
             padding: 0.8rem 2rem; 
@@ -56,7 +56,6 @@
         }
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
-        
         .social-links { display: flex; gap: 15px; border-right: 1px solid #eee; padding-right: 20px; }
         .social-links a { color: var(--dark-blue); font-size: 1.1rem; transition: 0.3s; }
         .social-links a:hover { color: var(--main-gold); transform: translateY(-2px); }
@@ -108,70 +107,62 @@
             justify-content: center;
         }
         
-        @media (min-width: 992px) {
-            .hero { background-attachment: fixed; }
-        }
+        @media (min-width: 992px) { .hero { background-attachment: fixed; } }
 
         .hero-content { max-width: 900px; margin: auto; }
         .hero h2 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 800; letter-spacing: 3px; text-shadow: 0 4px 20px rgba(0,0,0,0.6); }
         .hero p { font-size: 1.3rem; opacity: 0.95; margin-bottom: 40px; font-weight: 400; letter-spacing: 1px; }
 
-        /* --- 區塊設計 --- */
+        /* --- 展開收起按鈕與內容 --- */
+        .expand-btn {
+            background: none;
+            border: 1px solid var(--main-gold);
+            color: var(--main-gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        .expand-btn:hover { background: var(--main-gold); color: white; }
+        .expand-btn i { transition: transform 0.3s; margin-left: 8px; }
+        .expand-btn.active i { transform: rotate(180deg); }
+
+        .details-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            text-align: left;
+        }
+        .details-content.active {
+            max-height: 500px; /* 足夠大的高度 */
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .details-content ul { list-style: none; padding: 0; margin: 0; }
+        .details-content li { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: flex-start; }
+        .details-content li i { color: var(--main-gold); margin-right: 10px; margin-top: 5px; }
+
+        /* --- 通用區塊 --- */
         .section-light { padding: 100px 20px; background: var(--soft-bg); }
         .section-white { padding: 100px 20px; background: var(--white); }
         .section-dark { padding: 100px 20px; background: var(--dark-blue); color: white; }
-        <style>
-    .expand-btn {
-        background: none;
-        border: 1px solid var(--main-gold);
-        color: var(--main-gold);
-        padding: 8px 20px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: 600;
-        margin-top: 15px;
-        transition: 0.3s;
-        font-size: 0.9rem;
-    }
-    
-    .expand-btn:hover {
-        background: var(--main-gold);
-        color: white;
-    }
-
-    .details-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.5s ease-out;
-        border-top: 0px solid #eee;
-    }
-
-    .details-content.active {
-        max-height: 300px; /* 預期展開的最大高度 */
-        margin-top: 10px;
-        border-top: 1px solid #eee;
-    }
-
-    .expand-btn i {
-        transition: transform 0.3s;
-    }
-
-    .expand-btn.active i {
-        transform: rotate(180deg);
-    }
 
         .container { max-width: 1100px; margin: auto; }
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 20px; }
         .section-title h2::after { content: ''; width: 60px; height: 3px; background: var(--main-gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        /* 卡片 */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s ease; border: 1px solid rgba(0,0,0,0.02); }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card-img { width: 100%; height: 260px; background-size: cover; background-position: center; }
-        .card-content { padding: 40px; }
-        .card h3 { margin-top: 0; color: var(--dark-blue); }
+        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; }
+        .card-content { padding: 30px; }
+        .card h3 { margin-top: 0; color: var(--dark-blue); margin-bottom: 15px; }
 
         .cta-btn { 
             display: inline-block; background: var(--main-gold); color: white; 
@@ -183,24 +174,6 @@
 
         footer { background: #f0f2f5; text-align: center; padding: 80px 20px; color: var(--text-muted); border-top: 1px solid #eee; }
     </style>
-    <script>
-    function toggleDetails(btn) {
-        const content = btn.nextElementSibling;
-        
-        // 切換內容的 active class
-        content.classList.toggle('active');
-        
-        // 切換按鈕本身的 active class (旋轉圖示)
-        btn.classList.toggle('active');
-        
-        // 修改按鈕文字
-        if (content.classList.contains('active')) {
-            btn.innerHTML = '收起細節 <i class="fas fa-chevron-down"></i>';
-        } else {
-            btn.innerHTML = '展開需求細節 <i class="fas fa-chevron-down"></i>';
-        }
-    }
-</script>
 </head>
 <body>
 
@@ -216,17 +189,14 @@
             <a href="https://www.threads.net/@euroliving.tw" target="_blank"><i class="fa-brands fa-threads"></i></a>
         </div>
         <div class="hamburger" id="hamburgerBtn">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </div>
 </nav>
 
-<!-- 修正過的導覽選單連結 -->
 <div id="myNav" class="nav-overlay">
     <span class="close-btn" id="closeBtn">&times;</span>
-    <a href="#aboutus">關於我們</a> <!-- 連結到下方核心理念區塊 -->
+    <a href="#aboutus">關於我們</a>
     <a href="#services">服務內容</a>
     <a href="#housing">住宿安排</a>
     <a href="#whyus">為什麼選我們</a>
@@ -241,12 +211,12 @@
     </div>
 </section>
 
-<!-- 第一個內容區塊 -->
+<!-- 適合這樣的您區塊：學生獨立分類 + 展開功能 -->
 <section class="section-light" id="target-audience">
     <div class="container">
         <div class="section-title">
             <h2>適合這樣的您</h2>
-            <p style="text-align: center; color: var(--text-muted); margin-top: -50px; margin-bottom: 50px;">點擊下方按鈕了解我們能為您做什麼</p>
+            <p style="color: var(--text-muted); margin-top: -50px; margin-bottom: 50px;">量身打造的在地支援方案</p>
         </div>
         
         <div class="grid">
@@ -255,40 +225,36 @@
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>華人家庭</h3>
-                    <p>為移居西班牙的家庭提供最溫暖的護航，專注於生活穩定與子女教育。</p>
-                    
+                    <p>為移居西班牙的家庭提供溫暖護航，專注於生活穩定與子女教育。</p>
                     <button class="expand-btn" onclick="toggleDetails(this)">
-                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                        了解家庭支援 <i class="fas fa-chevron-down"></i>
                     </button>
-                    
                     <div class="details-content">
-                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 國際/私立學校申請諮詢</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 長期租房/買房代看服務</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 家庭醫療保險配套建議</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 陪同辦理住家登記 (Padrón)</li>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 國際/私立學校申請諮詢與陪同</li>
+                            <li><i class="fas fa-check"></i> 長期租房/買房代看與合約審查</li>
+                            <li><i class="fas fa-check"></i> 全家醫療保險配套與診所推薦</li>
+                            <li><i class="fas fa-check"></i> 陪同辦理住家登記與家庭居留</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- 2. 留學生 -->
+            <!-- 2. 留學生 (獨立) -->
             <div class="card">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523240715181-2f0f9f20dd98?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>留學生</h3>
-                    <p>讓海外求學路不再迷惘，我們協助您處理繁瑣行政，讓您專心學業。</p>
-                    
+                    <p>排除求學路上的行政障礙，讓您在異國專注於學業與自我成長。</p>
                     <button class="expand-btn" onclick="toggleDetails(this)">
-                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                        了解留學支援 <i class="fas fa-chevron-down"></i>
                     </button>
-                    
                     <div class="details-content">
-                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 學生居留 (NIE) 初次/續卡辦理</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 大學學歷對等與認證輔導</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 學生公寓/分租房間預約與簽約</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 當地銀行學生帳戶開戶陪同</li>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 學生居留 (NIE) 初次/續卡全程辦理</li>
+                            <li><i class="fas fa-check"></i> 大學學歷對等與官方翻譯諮詢</li>
+                            <li><i class="fas fa-check"></i> 學生公寓/分租房間預約與簽約</li>
+                            <li><i class="fas fa-check"></i> 銀行學生帳戶開戶陪同</li>
                         </ul>
                     </div>
                 </div>
@@ -299,18 +265,16 @@
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
-                    <p>專為遠端工作者打造，快速解決落地生活庶務，銜接地中海高品質生活。</p>
-                    
+                    <p>專為遠端工作者打造，快速解決落地庶務，銜接高品質地中海生活。</p>
                     <button class="expand-btn" onclick="toggleDetails(this)">
-                        展開需求細節 <i class="fas fa-chevron-down"></i>
+                        了解工作支援 <i class="fas fa-chevron-down"></i>
                     </button>
-                    
                     <div class="details-content">
-                        <ul style="list-style: none; padding: 0; margin-top: 15px; text-align: left;">
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 數位遊牧簽證 (Digital Nomad Visa) 落地諮詢</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 專業 Coworking Space 推薦與申辦</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 高速網路與水電瓦斯合約過戶</li>
-                            <li><i class="fas fa-check" style="color: var(--main-gold); margin-right: 10px;"></i> 當地稅務申報 (Modelo) 基本引導</li>
+                        <ul>
+                            <li><i class="fas fa-check"></i> 數位遊牧簽證 (DNV) 落地行政支援</li>
+                            <li><i class="fas fa-check"></i> 專業共享空間推薦與商務對接</li>
+                            <li><i class="fas fa-check"></i> 高速網路申辦與水電過戶代辦</li>
+                            <li><i class="fas fa-check"></i> 當地稅務申報基本引導與諮詢</li>
                         </ul>
                     </div>
                 </div>
@@ -341,74 +305,59 @@
     </div>
 </section>
 
-<!-- 核心理念區塊：ID 已改為 aboutus -->
 <section class="section-padding bg-light" id="aboutus" style="padding: 100px 20px;">
     <div class="container">
         <div class="section-title">
             <h3 style="color: var(--main-gold); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; text-transform: uppercase;">About Us</h3>
             <h2>核心理念</h2>
         </div>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px;">
-            <!-- 方塊 1 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-fingerprint"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">非傳統代辦</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">我們不是冷冰冰的中介，而是您在歐洲的夥伴，陪您面對語言與制度的挑戰。</p>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="about-item" style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <i class="fas fa-fingerprint" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
+                <h4 style="color: var(--dark-blue);">非傳統代辦</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">我們是您在歐洲的夥伴，陪您面對語言與制度的挑戰。</p>
             </div>
-            <!-- 方塊 2 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-anchor"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">在地支援</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">提供長期穩定的支援系統，協助您理解當地制度，建立真正的安全感。</p>
+            <div class="about-item" style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <i class="fas fa-anchor" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
+                <h4 style="color: var(--dark-blue);">在地支援</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">提供長期穩定支援，協助您理解當地制度，建立安全感。</p>
             </div>
-            <!-- 方塊 3 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-hand-holding-heart"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">有人在的精神</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">我們相信最重要的不是資訊，而是「有人在」的溫度，隨時回應您的需求。</p>
+            <div class="about-item" style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <i class="fas fa-hand-holding-heart" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
+                <h4 style="color: var(--dark-blue);">有人在的精神</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">最重要的不是資訊，而是「有人在」的溫度，隨時回應需求。</p>
             </div>
-            <!-- 方塊 4 -->
-            <div style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 3px solid transparent; transition: 0.3s;" onmouseover="this.style.borderBottom='3px solid var(--main-gold)'" onmouseout="this.style.borderBottom='3px solid transparent'">
-                <div style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;">
-                    <i class="fas fa-house-user"></i>
-                </div>
-                <h4 style="margin-bottom: 15px; color: var(--dark-blue);">真正在地化</h4>
-                <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;">讓西班牙不再只是陌生的國度，透過我們的引導，讓這裡成為您真正的家。</p>
+            <div class="about-item" style="background: white; padding: 40px 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                <i class="fas fa-house-user" style="font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px;"></i>
+                <h4 style="color: var(--dark-blue);">真正在地化</h4>
+                <p style="font-size: 0.9rem; color: var(--text-muted);">讓西班牙成為您真正的家，透過我們引導不再陌生。</p>
             </div>
         </div>
     </div>
 </section>
-    
+
 <section class="section-dark" id="whyus">
     <div class="container">
         <div class="section-title"><h2>為什麼選我們</h2></div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 60px; text-align: center;">
+        <div class="grid" style="text-align: center;">
             <div>
                 <i class="fas fa-map-marked-alt" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
                 <h4>真正西班牙在地</h4>
-                <p>我們長期駐守當地，非遠端代辦，能即時處理任何突發狀況。</p>
+                <p>長期駐守當地，非遠端代辦，能即時處理突發狀況。</p>
             </div>
             <div>
                 <i class="fas fa-user-check" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
                 <h4>全程現場陪同</h4>
-                <p>拒絕雞同鴨講。專業人員全程陪同辦理手續，溝通無礙更有保障。</p>
+                <p>專業人員全程陪同辦理手續，溝通無礙更有保障。</p>
             </div>
             <div>
                 <i class="fas fa-gem" style="font-size: 3.5rem; color: var(--main-gold); margin-bottom: 25px;"></i>
                 <h4>您的長期後盾</h4>
-                <p>收費透明誠信，服務不僅限於落地，是您在歐生活的長久靠山。</p>
+                <p>收費透明誠信，是您在歐生活的長久靠山。</p>
             </div>
         </div>
     </div>
 </section>
-    
 
 <section class="section-white" id="blog">
     <div class="container">
@@ -418,7 +367,7 @@
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600')"></div>
                 <div class="card-content">
                     <h3>西班牙居留最速攻略</h3>
-                    <p>2026年最新辦理流程與注意事項，避開常見代辦陷阱...</p>
+                    <p>2026年最新辦理流程與注意事項，避開常見陷阱...</p>
                 </div>
             </div>
         </div>
@@ -431,27 +380,31 @@
 </footer>
 
 <script>
+    // 漢堡選單邏輯
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const closeBtn = document.getElementById('closeBtn');
     const myNav = document.getElementById('myNav');
     const navLinks = document.querySelectorAll('.nav-overlay a');
 
-    // 開啟選單
-    hamburgerBtn.addEventListener('click', () => { 
-        myNav.classList.add('active'); 
-    });
-
-    // 關閉選單
-    closeBtn.addEventListener('click', () => { 
-        myNav.classList.remove('active'); 
-    });
-
-    // 點擊選單連結後自動關閉並跳轉
+    hamburgerBtn.addEventListener('click', () => { myNav.classList.add('active'); });
+    closeBtn.addEventListener('click', () => { myNav.classList.remove('active'); });
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            myNav.classList.remove('active');
-        });
+        link.addEventListener('click', () => { myNav.classList.remove('active'); });
     });
+
+    // 展開收起邏輯
+    function toggleDetails(btn) {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('active');
+        btn.classList.toggle('active');
+        
+        if (content.classList.contains('active')) {
+            btn.innerHTML = '收起細節 <i class="fas fa-chevron-down"></i>';
+        } else {
+            const type = btn.parentElement.querySelector('h3').innerText;
+            btn.innerHTML = `了解${type.substring(0,2)}支援 <i class="fas fa-chevron-down"></i>`;
+        }
+    }
 </script>
 
 </body>

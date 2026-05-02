@@ -9,8 +9,8 @@
         :root { 
             --main-gold: #c5a059; 
             --dark-blue: #1a2a3a; 
-            --deep-navy: #101a24; /* 更深的一種藍，增加專業感 */
             --soft-bg: #fdfaf5; 
+            --champagne: #f7f1e3; /* 輕盈的香檳色，取代深藍色 */
             --white: #ffffff;
             --text-main: #2c3e50;
             --text-muted: #7f8c8d;
@@ -31,7 +31,7 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08); 
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05); 
             position: sticky; 
             top: 0; 
             z-index: 2000; 
@@ -61,30 +61,28 @@
 
         /* --- Hero --- */
         .hero { 
-            background: linear-gradient(rgba(26, 42, 58, 0.5), rgba(26, 42, 58, 0.7)), 
+            background: linear-gradient(rgba(26, 42, 58, 0.4), rgba(26, 42, 58, 0.6)), 
                         url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1600&auto=format&fit=crop'); 
             background-size: cover; background-position: center; color: white; 
             padding: 180px 20px; text-align: center; min-height: 600px; display: flex; align-items: center; justify-content: center;
         }
-        .hero h2 { font-size: 3.2rem; margin-bottom: 20px; font-weight: 800; letter-spacing: 3px; }
+        .hero h2 { font-size: 3rem; margin-bottom: 20px; font-weight: 800; letter-spacing: 3px; }
 
         /* --- 通用元件 --- */
         .container { max-width: 1100px; margin: auto; }
         .section-padding { padding: 100px 20px; }
         .section-light { background: var(--soft-bg); }
         .section-white { background: var(--white); }
-        .section-dark-brand { background: var(--deep-navy); color: white; } /* 用於 Why Us 的強化對比 */
+        .section-accent { background: var(--champagne); } /* 優化後的 Why Us 顏色 */
         
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
-            font-size: 2.2rem; position: relative; display: inline-block; 
-            padding-bottom: 25px; 
+            font-size: 2rem; position: relative; display: inline-block; 
+            padding-bottom: 20px; 
             color: var(--dark-blue);
         }
-        /* 針對深色區塊的標題樣式調整 */
-        .section-dark-brand .section-title h2 { color: var(--white); }
         .section-title h2::after { 
-            content: ''; width: 60px; height: 3px; background: var(--main-gold); 
+            content: ''; width: 50px; height: 2px; background: var(--main-gold); 
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
         }
 
@@ -95,53 +93,47 @@
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
         .card { 
-            background: var(--white); border-radius: 15px; overflow: hidden; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; 
+            background: var(--white); border-radius: 12px; overflow: hidden; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: 0.4s; 
             display: flex; flex-direction: column; height: 100%;
         }
-        .card:hover { transform: translateY(-10px); }
-        
-        .card-img { 
-            width: 100%; height: 240px; 
-            background-size: cover; 
-            background-position: center; 
-            flex-shrink: 0; 
-        }
-        
+        .card:hover { transform: translateY(-8px); }
+        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; flex-shrink: 0; }
         .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-content h3 { color: var(--dark-blue); font-size: 1.4rem; margin-top: 0; margin-bottom: 12px; }
-        .service-intro { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+        .card-content h3 { color: var(--dark-blue); font-size: 1.3rem; margin-top: 0; margin-bottom: 12px; }
+        .service-intro { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; flex-grow: 1; }
 
         .expand-btn {
             background: none; border: 1px solid var(--main-gold); color: var(--main-gold);
             padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: 600;
             margin-top: auto; width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
-            text-decoration: none;
+            text-decoration: none; font-size: 0.9rem;
         }
         .expand-btn:hover { background: var(--main-gold); color: white; }
         
         .details-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-        .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
+        .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #eee; padding-top: 20px; }
         .details-content ul { list-style: none; padding: 0; margin: 0; }
-        .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.92rem; }
+        .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.9rem; color: var(--text-main); }
         .details-content li i { color: var(--main-gold); margin-right: 10px; margin-top: 5px; font-size: 0.8rem; }
 
         /* --- 核心理念小方塊 --- */
         .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
         .about-box {
             background: var(--white); padding: 40px 30px; border-radius: 12px; text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; border-bottom: 3px solid transparent;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.08); /* 淡淡的金色陰影 */
+            transition: 0.3s; border: 1px solid transparent;
         }
-        .about-box:hover { transform: translateY(-5px); border-bottom: 3px solid var(--main-gold); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .about-box i { font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px; display: block; }
-        .about-box h4 { color: var(--dark-blue); font-size: 1.25rem; margin-bottom: 15px; font-weight: 700; }
+        .about-box:hover { transform: translateY(-5px); border: 1px solid var(--main-gold); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+        .about-box i { font-size: 2.2rem; color: var(--main-gold); margin-bottom: 20px; display: block; }
+        .about-box h4 { color: var(--dark-blue); font-size: 1.2rem; margin-bottom: 15px; font-weight: 700; }
         .about-box p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
-        /* --- 為什麼選擇我們 (深色區塊強化版) --- */
-        .why-us-item h4 { font-size: 1.35rem; color: var(--white); margin-bottom: 15px; letter-spacing: 1px; }
-        .why-us-item p { color: #cbd5e0; max-width: 300px; margin: 0 auto; line-height: 1.8; font-size: 0.95rem; }
+        /* --- 為什麼選擇我們 (優化後的輕盈感) --- */
+        .why-us-item h4 { font-size: 1.3rem; color: var(--dark-blue); margin-bottom: 15px; }
+        .why-us-item p { color: var(--text-main); max-width: 300px; margin: 0 auto; line-height: 1.8; font-size: 0.95rem; }
 
-        footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); border-top: 1px solid #e0e0e0; }
+        footer { background: #f9f9f9; text-align: center; padding: 60px 20px; color: var(--text-muted); border-top: 1px solid #eee; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -174,7 +166,7 @@
     <div class="hero-content">
         <h2>讓您的西班牙生活輕鬆落地</h2>
         <p>專業、誠信、在地的一站式安家支援服務</p>
-        <a href="mailto:info@euroliving.net" class="cta-btn" style="display:inline-block; background: var(--main-gold); color: white; padding: 18px 50px; text-decoration: none; border-radius: 50px; font-weight: bold;">立即預約專家諮詢</a>
+        <a href="mailto:info@euroliving.net" class="cta-btn" style="display:inline-block; background: var(--main-gold); color: white; padding: 18px 50px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 30px;">立即預約專家諮詢</a>
     </div>
 </section>
 
@@ -183,7 +175,6 @@
     <div class="container">
         <div class="section-title"><h2>適合這樣的您</h2></div>
         <div class="grid">
-            <!-- 家庭移民 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -199,7 +190,6 @@
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-            <!-- 留學生 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -215,7 +205,6 @@
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-            <!-- 數位遊牧 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -300,12 +289,12 @@
     </div>
 </section>
 
-<!-- 3. 核心理念 (淺米底 / 感性連結) -->
-<section class="section-padding section-light" id="about-section">
+<!-- 3. 核心理念 (白底 / 精緻感) -->
+<section class="section-padding section-white" id="about-section">
     <div class="container">
         <div class="section-title">
             <h2>我們的核心理念</h2>
-            <p style="color: var(--text-muted); margin-top: -20px; font-size: 1rem;">不僅是代辦手續，更是在異國生活的溫度陪伴</p>
+            <p style="color: var(--text-muted); margin-top: -15px; font-size: 0.95rem;">不僅是代辦手續，更是在異國生活的溫度陪伴</p>
         </div>
         
         <div class="about-grid">
@@ -333,8 +322,8 @@
     </div>
 </section>
 
-<!-- 4. 為什麼選擇我們 (深藍色品牌背景 / 理性實力) -->
-<section class="section-padding section-dark-brand" id="whyus-section">
+<!-- 4. 為什麼選擇我們 (淺香檳金底 / 視覺亮點) -->
+<section class="section-padding section-accent" id="whyus-section">
     <div class="container">
         <div class="section-title">
             <h2>為什麼選擇我們</h2>
@@ -360,8 +349,8 @@
     </div>
 </section>
 
-<!-- 5. 最新專欄 (白底) -->
-<section class="section-padding section-white" id="blog">
+<!-- 5. 最新專欄 (淺色底) -->
+<section class="section-padding section-light" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
@@ -399,7 +388,6 @@
 </footer>
 
 <script>
-    // 導覽列控制
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const closeBtn = document.getElementById('closeBtn');
     const myNav = document.getElementById('myNav');
@@ -410,10 +398,8 @@
         a.onclick = () => myNav.classList.remove('active');
     });
 
-    // 卡片展開/收合
     function toggleCard(cardElement) {
         if (event.target.closest('a')) return;
-        
         cardElement.classList.toggle('active');
         const btn = cardElement.querySelector('.expand-btn');
         if (btn && btn.tagName.toLowerCase() !== 'a') {

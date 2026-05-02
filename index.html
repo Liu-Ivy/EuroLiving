@@ -283,27 +283,98 @@
     </div>
 </section>
 
+<!-- 替換原本的「專業服務內容」區塊 (id="services") -->
 <section class="section-white" id="services">
     <div class="container">
-        <div class="section-title"><h2>專業服務內容</h2></div>
+        <div class="section-title">
+            <h2>專業服務內容</h2>
+            <p style="color: var(--text-muted); margin-top: -50px; margin-bottom: 50px;">全方位的在地行政與生活對接服務</p>
+        </div>
+        
         <div class="grid">
-            <div class="card" id="housing">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600')"></div>
+            <!-- 1. 簽證/居留 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600')"></div>
                 <div class="card-content">
-                    <h3>簽證與住宿安排</h3>
-                    <p>包含 NIE/TIE 辦理、大學學歷對等，以及嚴選住宿代看服務。</p>
+                    <h3>簽證 / 居留</h3>
+                    <p>專業引導各類居留申請，解決最讓海外人士頭痛的行政流程。</p>
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        詳細項目 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details-content">
+                        <ul>
+                            <li><i class="fas fa-circle-check"></i> NIE / TIE 指紋預約與初次辦理</li>
+                            <li><i class="fas fa-circle-check"></i> 學生居留續卡 (Prórroga)</li>
+                            <li><i class="fas fa-circle-check"></i> 數位遊牧、投資、家屬團聚居留諮詢</li>
+                            <li><i class="fas fa-circle-check"></i> 居留逾期與補件行政協助</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
+            <!-- 2. 文件認證 -->
             <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600')"></div>
+                <div class="card-content">
+                    <h3>文件認證</h3>
+                    <p>確保您的官方文件在西班牙具備法律效力，銜接學業與法律手續。</p>
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        詳細項目 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details-content">
+                        <ul>
+                            <li><i class="fas fa-circle-check"></i> 學歷對等 (Homologación) 申請</li>
+                            <li><i class="fas fa-circle-check"></i> 海牙認證 (Apostille) 諮詢</li>
+                            <li><i class="fas fa-circle-check"></i> 官方宣誓翻譯 (Traductor Jurado) 對接</li>
+                            <li><i class="fas fa-circle-check"></i> 各類公證書與證明文件整理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. 住宿安排 -->
+            <div class="card" id="housing">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600')"></div>
                 <div class="card-content">
-                    <h3>落地生活支援</h3>
-                    <p>銀行開戶、保險諮詢、水電瓦斯掛號等一切瑣碎生活庶務。</p>
+                    <h3>住宿安排</h3>
+                    <p>避開租屋詐騙與合約陷阱，我們幫您在當地尋找最理想的居所。</p>
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        詳細項目 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details-content">
+                        <ul>
+                            <li><i class="fas fa-circle-check"></i> 嚴選房源現場實地代看與錄影</li>
+                            <li><i class="fas fa-circle-check"></i> 租賃合約條款審查與風險提示</li>
+                            <li><i class="fas fa-circle-check"></i> 長期公寓、學生住宅、商務中心預約</li>
+                            <li><i class="fas fa-circle-check"></i> 入住交屋陪同與屋況點交</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. 落地支援 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600')"></div>
+                <div class="card-content">
+                    <h3>落地支援</h3>
+                    <p>從抵達的第一天起，解決一切生活瑣碎事務，無縫接軌新生活。</p>
+                    <button class="expand-btn" onclick="toggleDetails(this)">
+                        詳細項目 <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="details-content">
+                        <ul>
+                            <li><i class="fas fa-circle-check"></i> 銀行開戶陪同 (含無居留開戶)</li>
+                            <li><i class="fas fa-circle-check"></i> 當地電信、交通卡辦理</li>
+                            <li><i class="fas fa-circle-check"></i> 水、電、瓦斯合約變更與扣款設定</li>
+                            <li><i class="fas fa-circle-check"></i> 私立/公共醫療保險諮詢與註冊</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="section-padding bg-light" id="aboutus" style="padding: 100px 20px;">
     <div class="container">
@@ -405,6 +476,26 @@
             btn.innerHTML = `了解${type.substring(0,2)}支援 <i class="fas fa-chevron-down"></i>`;
         }
     }
+    function toggleDetails(btn) {
+    const content = btn.nextElementSibling;
+    content.classList.toggle('active');
+    btn.classList.toggle('active');
+    
+    // 檢查目前狀態來更改文字
+    if (content.classList.contains('active')) {
+        btn.innerHTML = '收起細節 <i class="fas fa-chevron-down"></i>';
+    } else {
+        // 如果是上方對象區塊，維持類型文字；如果是服務區塊，使用「詳細項目」
+        const sectionId = btn.closest('section').id;
+        if (sectionId === 'target-audience') {
+            const type = btn.parentElement.querySelector('h3').innerText;
+            btn.innerHTML = `了解${type.substring(0,2)}支援 <i class="fas fa-chevron-down"></i>`;
+        } else {
+            btn.innerHTML = '詳細項目 <i class="fas fa-chevron-down"></i>';
+        }
+    }
+}
+
 </script>
 
 </body>

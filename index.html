@@ -9,6 +9,7 @@
         :root { 
             --main-gold: #c5a059; 
             --dark-blue: #1a2a3a; 
+            --deep-navy: #101a24; /* 更深的一種藍，增加專業感 */
             --soft-bg: #fdfaf5; 
             --white: #ffffff;
             --text-main: #2c3e50;
@@ -72,6 +73,7 @@
         .section-padding { padding: 100px 20px; }
         .section-light { background: var(--soft-bg); }
         .section-white { background: var(--white); }
+        .section-dark-brand { background: var(--deep-navy); color: white; } /* 用於 Why Us 的強化對比 */
         
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
@@ -79,6 +81,8 @@
             padding-bottom: 25px; 
             color: var(--dark-blue);
         }
+        /* 針對深色區塊的標題樣式調整 */
+        .section-dark-brand .section-title h2 { color: var(--white); }
         .section-title h2::after { 
             content: ''; width: 60px; height: 3px; background: var(--main-gold); 
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
@@ -115,7 +119,6 @@
             text-decoration: none;
         }
         .expand-btn:hover { background: var(--main-gold); color: white; }
-        .expand-btn i { transition: transform 0.3s; margin-left: 8px; }
         
         .details-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
         .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
@@ -134,9 +137,9 @@
         .about-box h4 { color: var(--dark-blue); font-size: 1.25rem; margin-bottom: 15px; font-weight: 700; }
         .about-box p { font-size: 0.9rem; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
-        /* --- 為什麼選擇我們 --- */
-        .why-us-item h4 { font-size: 1.35rem; color: var(--dark-blue); margin-bottom: 15px; }
-        .why-us-item p { color: var(--text-muted); max-width: 300px; margin: 0 auto; line-height: 1.8; }
+        /* --- 為什麼選擇我們 (深色區塊強化版) --- */
+        .why-us-item h4 { font-size: 1.35rem; color: var(--white); margin-bottom: 15px; letter-spacing: 1px; }
+        .why-us-item p { color: #cbd5e0; max-width: 300px; margin: 0 auto; line-height: 1.8; font-size: 0.95rem; }
 
         footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); border-top: 1px solid #e0e0e0; }
     </style>
@@ -162,7 +165,8 @@
     <span class="close-btn" id="closeBtn">&times;</span>
     <a href="#target-audience">適合對象</a>
     <a href="#services">服務內容</a>
-    <a href="#trust-section">關於與優勢</a>
+    <a href="#about-section">核心理念</a>
+    <a href="#whyus-section">為什麼選擇我們</a>
     <a href="#blog">最新專欄</a>
 </div>
 
@@ -174,11 +178,12 @@
     </div>
 </section>
 
-<!-- 1. 痛點認知：適合對象 -->
+<!-- 1. 適合對象 (淺色底) -->
 <section class="section-padding section-light" id="target-audience">
     <div class="container">
         <div class="section-title"><h2>適合這樣的您</h2></div>
         <div class="grid">
+            <!-- 家庭移民 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -194,6 +199,7 @@
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
+            <!-- 留學生 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -209,6 +215,7 @@
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
+            <!-- 數位遊牧 -->
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -228,7 +235,7 @@
     </div>
 </section>
 
-<!-- 2. 解決方案：專業服務內容 -->
+<!-- 2. 服務內容 (白底) -->
 <section class="section-padding section-white" id="services">
     <div class="container">
         <div class="section-title"><h2>專業服務內容</h2></div>
@@ -293,16 +300,15 @@
     </div>
 </section>
 
-<!-- 3. 信任建立：核心理念 + 為什麼選擇我們 (心理學排列優化) -->
-<section class="section-padding section-light" id="trust-section">
+<!-- 3. 核心理念 (淺米底 / 感性連結) -->
+<section class="section-padding section-light" id="about-section">
     <div class="container">
-        <!-- 感性建立：核心理念 -->
         <div class="section-title">
             <h2>我們的核心理念</h2>
             <p style="color: var(--text-muted); margin-top: -20px; font-size: 1rem;">不僅是代辦手續，更是在異國生活的溫度陪伴</p>
         </div>
         
-        <div class="about-grid" style="margin-bottom: 100px;">
+        <div class="about-grid">
             <div class="about-box">
                 <i class="fas fa-fingerprint"></i>
                 <h4>非傳統代辦</h4>
@@ -324,11 +330,12 @@
                 <p>透過專業引導，讓巴塞隆納或馬德里成為您真正的家。</p>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- 視覺過渡線 -->
-        <hr style="border: 0; border-top: 1px solid #e0d8c8; margin-bottom: 80px; width: 60%; margin-left: auto; margin-right: auto;">
-
-        <!-- 理性論點：為什麼選擇我們 (引用 image_12.png 內容) -->
+<!-- 4. 為什麼選擇我們 (深藍色品牌背景 / 理性實力) -->
+<section class="section-padding section-dark-brand" id="whyus-section">
+    <div class="container">
         <div class="section-title">
             <h2>為什麼選擇我們</h2>
         </div>
@@ -353,7 +360,7 @@
     </div>
 </section>
 
-<!-- 4. 權威證明：最新專欄 -->
+<!-- 5. 最新專欄 (白底) -->
 <section class="section-padding section-white" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>

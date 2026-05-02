@@ -60,8 +60,8 @@
 
         /* --- Hero --- */
         .hero { 
-            background: linear-gradient(rgba(26, 42, 58, 0.5), rgba(26, 42, 58, 0.7)), 
-                        url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1600&auto=format&fit=crop'); 
+            background: linear-gradient(rgba(26, 42, 58, 0.4), rgba(26, 42, 58, 0.6)), 
+                        url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=1600'); /* 聖家堂遠景 */
             background-size: cover; background-position: center; color: white; 
             padding: 180px 20px; text-align: center; min-height: 600px; display: flex; align-items: center; justify-content: center;
         }
@@ -71,21 +71,20 @@
         .container { max-width: 1100px; margin: auto; }
         .section-light { padding: 100px 20px; background: var(--soft-bg); }
         .section-white { padding: 100px 20px; background: var(--white); }
-        .section-dark { padding: 100px 20px; background: var(--dark-blue); color: white; }
-
+        
         .section-title { text-align: center; margin-bottom: 70px; }
         .section-title h2 { 
             font-size: 2.2rem; position: relative; display: inline-block; 
-            padding-bottom: 25px; /* 增加下影線間距 */
+            padding-bottom: 25px; 
         }
         .section-title h2::after { 
             content: ''; width: 60px; height: 3px; background: var(--main-gold); 
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
         }
 
-        /* --- 卡片設計 --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } /* 優化為 2x2 */
+        /* --- 卡片與佈局 --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
 
@@ -114,6 +113,11 @@
             display: inline-block; background: var(--main-gold); color: white; padding: 18px 50px; 
             text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; 
         }
+        
+        /* 為什麼選擇我們區塊樣式 */
+        .why-us-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+        .why-icon { font-size: 2.5rem; color: var(--main-gold); margin-bottom: 20px; }
+
         footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); }
     </style>
 </head>
@@ -150,6 +154,19 @@
     </div>
 </section>
 
+<!-- 關於我們 -->
+<section class="section-white" id="aboutus">
+    <div class="container">
+        <div class="section-title">
+            <h2>關於我們</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">您的西班牙在地生活戰略夥伴</p>
+        </div>
+        <div style="max-width: 800px; margin: auto; text-align: center; font-size: 1.1rem; color: #555;">
+            <p>Euro Living 總部位於巴塞隆納，由一群深耕歐洲多年的專業團隊組成。我們深知異國安家的挑戰，因此致力於打破資訊差，提供透明、高效且具備溫度的落地支援。我們不只是代辦，更是您在西班牙最可靠的「當地朋友」。</p>
+        </div>
+    </div>
+</section>
+
 <!-- 適合這樣的您 -->
 <section class="section-light" id="target-audience">
     <div class="container">
@@ -159,7 +176,7 @@
         </div>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=600')"></div> <!-- 巴塞隆納街景 -->
                 <div class="card-content">
                     <h3>華人家庭</h3>
                     <p>為移居西班牙的家庭提供溫暖護航，專注於生活穩定與教育。</p>
@@ -174,7 +191,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523240715181-2f0f9f20dd98?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1543783230-27835842ec58?q=80&w=600')"></div> <!-- 西班牙大學建築 -->
                 <div class="card-content">
                     <h3>留學生</h3>
                     <p>排除求學行政障礙，讓您在異國專注於學業與成長。</p>
@@ -189,7 +206,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-148441785559c-44c650dfe122?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?q=80&w=600')"></div> <!-- 巴塞隆納海邊咖啡館樣式 -->
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
                     <p>快速解決落地庶務，銜接高品質地中海生活方式。</p>
@@ -207,7 +224,7 @@
     </div>
 </section>
 
-<!-- 專業服務內容 - 2x2 優化排版 -->
+<!-- 專業服務內容 -->
 <section class="section-white" id="services">
     <div class="container">
         <div class="section-title">
@@ -216,7 +233,7 @@
         </div>
         <div class="services-grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1554126807-6b10f6f6692a?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1464692805480-a69dfaafdb0d?q=80&w=600')"></div> <!-- 西班牙護照/文件感 -->
                 <div class="card-content">
                     <h3>簽證 / 居留</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -229,7 +246,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589330273594-fade1ee91647?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=600')"></div> <!-- 西班牙建築細節 -->
                 <div class="card-content">
                     <h3>文件認證</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -242,7 +259,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=600')"></div> <!-- 西班牙室內設計感 -->
                 <div class="card-content">
                     <h3>住宿安排</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -255,7 +272,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1516550135131-fe3dcb0bcd8f?q=80&w=600')"></div> <!-- 巴塞隆納凱旋門/戶外感 -->
                 <div class="card-content">
                     <h3>落地支援</h3>
                     <button class="expand-btn" onclick="toggleDetails(this)">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -271,13 +288,40 @@
     </div>
 </section>
 
+<!-- 為什麼選擇我們 -->
+<section class="section-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>為什麼選擇我們</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">超越期待的專業價值</p>
+        </div>
+        <div class="why-us-grid">
+            <div>
+                <div class="why-icon"><i class="fas fa-shield-halved"></i></div>
+                <h4>誠信透明</h4>
+                <p>所有流程與收費明晰，絕無隱藏開發成本。</p>
+            </div>
+            <div>
+                <div class="why-icon"><i class="fas fa-map-location-dot"></i></div>
+                <h4>在地資源</h4>
+                <p>深耕西班牙多年，擁有強大的在地行政與房產網絡。</p>
+            </div>
+            <div>
+                <div class="why-icon"><i class="fas fa-handshake-angle"></i></div>
+                <h4>深度支援</h4>
+                <p>不只是處理文件，我們更在乎您在地的生活適應。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- 最新專欄 -->
-<section class="section-light" id="blog">
+<section class="section-white" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=600')"></div> <!-- 馬德里/西班牙美景 -->
                 <div class="card-content">
                     <h3>西班牙居留必看</h3>
                     <p>了解 2026 最新行政流程與文件細節...</p>
@@ -285,7 +329,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?q=80&w=600')"></div> <!-- 巴塞隆納蘭布拉大道感 -->
                 <div class="card-content">
                     <h3>在地生活觀察</h3>
                     <p>巴塞隆納與馬德里的第一線生活心得分享...</p>
@@ -293,7 +337,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1504019347908-b45f9b0b8dd5?q=80&w=600')"></div> <!-- 西班牙巷弄日常感 -->
                 <div class="card-content">
                     <h3>服務核心精神</h3>
                     <p>深度解析 Euro Living 的在地支援溫度...</p>

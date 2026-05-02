@@ -82,7 +82,7 @@
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
         }
 
-        /* --- 卡片設計 --- */
+        /* --- 卡片設計：確保高度一致 --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } 
         
@@ -91,21 +91,24 @@
         .card { 
             background: var(--white); border-radius: 15px; overflow: hidden; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; 
-            display: flex; flex-direction: column; height: 100%;
+            display: flex; flex-direction: column; height: 100%; /* 關鍵：撐開高度 */
         }
         .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; position: relative; flex-shrink: 0; }
+        .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; flex-shrink: 0; }
         
-        /* 修正卡片內部對齊，確保按鈕整齊 */
+        /* 內容區塊對齊優化 */
         .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-content h3 { color: var(--dark-blue); font-size: 1.5rem; margin-top: 0; margin-bottom: 10px; }
-        .card-content .service-intro { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .card-content h3 { color: var(--dark-blue); font-size: 1.4rem; margin-top: 0; margin-bottom: 12px; }
+        .card-content p { margin-bottom: 20px; }
+        .card-content .service-intro { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
 
-        /* --- 展開功能 --- */
+        /* --- 展開按鈕底部固定 --- */
         .expand-btn {
             background: none; border: 1px solid var(--main-gold); color: var(--main-gold);
-            padding: 8px 20px; border-radius: 20px; cursor: pointer; font-weight: 600;
-            margin-top: auto; width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            padding: 10px 20px; border-radius: 25px; cursor: pointer; font-weight: 600;
+            margin-top: auto; /* 關鍵：將按鈕推向底部 */
+            width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
         }
         .expand-btn:hover { background: var(--main-gold); color: white; }
         .expand-btn i { transition: transform 0.3s; margin-left: 8px; }
@@ -117,13 +120,9 @@
         .card.active .details-content { max-height: 500px; margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 20px; }
         
         .details-content ul { list-style: none; padding: 0; margin: 0; }
-        .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.95rem; }
+        .details-content li { margin-bottom: 12px; display: flex; align-items: flex-start; font-size: 0.92rem; }
         .details-content li i { color: var(--main-gold); margin-right: 10px; margin-top: 5px; font-size: 0.8rem; }
 
-        .cta-btn { 
-            display: inline-block; background: var(--main-gold); color: white; padding: 18px 50px; 
-            text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s; 
-        }
         footer { background: #f0f2f5; text-align: center; padding: 60px 20px; color: var(--text-muted); }
     </style>
 </head>
@@ -155,7 +154,7 @@
     <div class="hero-content">
         <h2>讓您的西班牙生活輕鬆落地</h2>
         <p>專業、誠信、在地的一站式安家支援服務</p>
-        <a href="mailto:info@euroliving.net" class="cta-btn">立即預約專家諮詢</a>
+        <a href="mailto:info@euroliving.net" class="cta-btn" style="display:inline-block; background: var(--main-gold); color: white; padding: 18px 50px; text-decoration: none; border-radius: 50px; font-weight: bold;">立即預約專家諮詢</a>
     </div>
 </section>
 
@@ -168,9 +167,9 @@
         </div>
         <div class="grid">
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1542037104857-ffbb0b9155fb?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
-                    <h3>家庭</h3>
+                    <h3>華人家庭</h3>
                     <p class="service-intro">為移居家庭提供溫暖護航，專注於生活穩定、安全與優質教育資源對接。</p>
                     <div class="details-content">
                         <ul>
@@ -183,8 +182,8 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <!-- 修正留學生圖片連結 -->
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-152305085306e-8a3d3ecba3e9?q=80&w=600')"></div>
+                <!-- 重新更換連結：留學生圖片 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1525921429624-479b6a29d840?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>留學生</h3>
                     <p class="service-intro">排除求學行政障礙，解決租房陷阱與居留難題，讓您在異國專注於自我成長。</p>
@@ -199,15 +198,15 @@
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>數位遊牧 / 工作者</h3>
-                    <p class="service-intro">快速搞定行政落地，從簽證到共享空間，助您無縫銜接高品質地中海辦公生活。</p>
+                    <p class="service-intro">快速搞定行政落地，助您無縫銜接高品質地中海辦公生活。</p>
                     <div class="details-content">
                         <ul>
                             <li><i class="fas fa-check"></i> 數位遊牧簽證 (DNV) 落地後 TIE 辦理</li>
-                            <li><i class="fas fa-check"></i> 專業 Coworking 資源推薦與商務網絡對接</li>
-                            <li><i class="fas fa-check"></i> 水電瓦斯合約過戶與高速光纖網路安裝</li>
+                            <li><i class="fas fa-check"></i> 專業 Coworking 資源推薦與商務對接</li>
+                            <li><i class="fas fa-check"></i> 水電瓦斯合約過戶與高速網路安裝</li>
                         </ul>
                     </div>
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
@@ -222,61 +221,60 @@
     <div class="container">
         <div class="section-title">
             <h2>專業服務內容</h2>
-            <p style="color: var(--text-muted); margin-top: 10px;">不只是辦理文件，更是您在西班牙最可靠的後盾</p>
         </div>
         <div class="services-grid">
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>簽證 / 居留行政</h3>
-                    <p class="service-intro">協助您精確準備每一份文件，確保合法居留無虞。</p>
+                    <p class="service-intro">精確準備每一份文件，告別西班牙緩慢且複雜的行政流程。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> NIE/TIE 指紋預約搶辦</li>
-                            <li><i class="fas fa-circle-check"></i> 各類居留續卡與永居諮詢</li>
+                            <li><i class="fas fa-circle-check"></i> NIE/TIE 指紋預約搶辦 (Cita Previa)</li>
+                            <li><i class="fas fa-circle-check"></i> 各類居留續卡與永居身份諮詢</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>文件翻譯與認證</h3>
-                    <p class="service-intro">提供專業宣誓翻譯與學歷認證，確保文件具備完整法律效力。</p>
+                    <p class="service-intro">提供官方宣誓翻譯與學歷認證，確保您的文件具備法律效力。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 西班牙政府認可宣誓翻譯</li>
-                            <li><i class="fas fa-circle-check"></i> 學歷對等申請與海牙認證對接</li>
+                            <li><i class="fas fa-circle-check"></i> 官方宣誓翻譯 (Traductor Jurado) 對接</li>
+                            <li><i class="fas fa-circle-check"></i> 學歷對等 (Homologación) 與海牙認證</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>海外安居住宿</h3>
-                    <p class="service-intro">實地考察房源、審查合約陷阱，守護您的居住權益。</p>
+                    <p class="service-intro">代看房源、審查合約，讓您在踏入西班牙前就安頓好溫暖的家。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 專業房源實地代看提供視訊報告</li>
-                            <li><i class="fas fa-circle-check"></i> 租賃合約法律條款審核</li>
+                            <li><i class="fas fa-circle-check"></i> 房源實地代看與視訊環境報告</li>
+                            <li><i class="fas fa-circle-check"></i> 租賃合約法律條款審核與過戶</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
             <div class="card" onclick="toggleCard(this)">
-                <!-- 修正落地支援圖片連結 -->
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165833767-027eeea160a7?q=80&w=600')"></div>
+                <!-- 重新更換連結：全方位落地支援圖片 -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521791136364-798a7bc0d26e?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>全方位落地支援</h3>
-                    <p class="service-intro">解決生活庶務，縮短異鄉適應期，快速融入當地。</p>
+                    <p class="service-intro">解決生活瑣事，包含銀行開戶、醫療保險與交通辦理，快速融入在地生活。</p>
                     <div class="details-content">
                         <ul>
-                            <li><i class="fas fa-circle-check"></i> 本地銀行開戶陪同</li>
-                            <li><i class="fas fa-circle-check"></i> 醫療保險諮詢與生活帳戶申辦</li>
+                            <li><i class="fas fa-circle-check"></i> 本地銀行陪同開戶與保險規劃</li>
+                            <li><i class="fas fa-circle-check"></i> 生活庶務 (水電網路) 與交通卡辦理</li>
                         </ul>
                     </div>
                     <button class="expand-btn">詳細項目 <i class="fas fa-chevron-down"></i></button>
@@ -286,34 +284,33 @@
     </div>
 </section>
 
-<!-- 最新專欄 -->
+<!-- 最新專欄：優化排版整齊度 -->
 <section class="section-light" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>
         <div class="grid">
-            <!-- Blog 卡片現在會整齊對齊 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>西班牙居留必看</h3>
-                    <p>了解 2026 最新行政流程與文件細節...</p>
-                    <a href="https://www.instagram.com/p/DXD595JAVna/" target="_blank" class="expand-btn" style="text-decoration:none;">閱讀原文 <i class="fab fa-instagram"></i></a>
+                    <p class="service-intro">了解 2026 最新行政流程與文件細節，避開常見的申請誤區。</p>
+                    <a href="https://www.instagram.com/p/DXD595JAVna/" target="_blank" class="expand-btn">閱讀原文 <i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511527661048-7fe73d85e9a4?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>在地生活觀察</h3>
-                    <p>巴塞隆納與馬德里的第一線生活心得分享...</p>
-                    <a href="https://www.instagram.com/euroliving.tw/p/DXqGWNFk5Kj/" target="_blank" class="expand-btn" style="text-decoration:none;">閱讀原文 <i class="fab fa-instagram"></i></a>
+                    <p class="service-intro">巴塞隆納與馬德里的第一線生活心得分享，帶您看見最真實的西班牙。</p>
+                    <a href="https://www.instagram.com/euroliving.tw/p/DXqGWNFk5Kj/" target="_blank" class="expand-btn">閱讀原文 <i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=600')"></div>
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop')"></div>
                 <div class="card-content">
                     <h3>服務核心精神</h3>
-                    <p>深度解析 Euro Living 的在地支援溫度...</p>
-                    <a href="https://www.threads.net/@euroliving.tw/post/DXF1hbDD3yM" target="_blank" class="expand-btn" style="text-decoration:none;">閱讀原文 <i class="fab fa-threads"></i></a>
+                    <p class="service-intro">深度解析 Euro Living 的在地支援溫度，為什麼我們能成為您最可靠的後盾。</p>
+                    <a href="https://www.threads.net/@euroliving.tw/post/DXF1hbDD3yM" target="_blank" class="expand-btn">閱讀原文 <i class="fab fa-threads"></i></a>
                 </div>
             </div>
         </div>
@@ -337,12 +334,14 @@
     });
 
     function toggleCard(cardElement) {
+        // 點擊連結時不觸展開
         if (event.target.tagName.toLowerCase() === 'a' || event.target.parentElement.tagName.toLowerCase() === 'a') {
             return;
         }
+        
         cardElement.classList.toggle('active');
         const btn = cardElement.querySelector('.expand-btn');
-        if (btn) {
+        if (btn && !cardElement.querySelector('a.expand-btn')) {
             const isExpanded = cardElement.classList.contains('active');
             const originalText = cardElement.closest('section').id === 'target-audience' ? '了解支援' : '詳細項目';
             btn.innerHTML = isExpanded ? `收起細節 <i class="fas fa-chevron-down"></i>` : `${originalText} <i class="fas fa-chevron-down"></i>`;

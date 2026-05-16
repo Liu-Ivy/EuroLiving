@@ -86,16 +86,40 @@
             position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); 
         }
 
-        /* --- 卡片設計 --- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; } 
+        /* --- 卡片設計與網格修正 --- */
+        /* 1. 適合對象專用：設定固定為兩張兩張一排，並置頂對齊使卡片獨立展開互不拉扯 */
+        .target-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            align-items: start; 
+        }
         
-        @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+        /* 2. 專業服務內容專用：雙欄網格並置頂對齊 */
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            align-items: start; 
+        } 
+        
+        /* 最新專欄與一般網格 */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+            align-items: start; 
+        }
+
+        @media (max-width: 768px) { 
+            .target-grid { grid-template-columns: 1fr; } 
+            .services-grid { grid-template-columns: 1fr; } 
+        }
 
         .card { 
             background: var(--white); border-radius: 12px; overflow: hidden; 
             box-shadow: 0 8px 25px rgba(0,0,0,0.05); transition: 0.4s; 
-            display: flex; flex-direction: column; height: 100%;
+            display: flex; flex-direction: column; height: auto; /* 允許卡片各自長高 */
         }
         .card:hover { transform: translateY(-8px); }
         .card-img { width: 100%; height: 240px; background-size: cover; background-position: center; flex-shrink: 0; }
@@ -170,11 +194,10 @@
     </div>
 </section>
 
-<!-- 1. 適合對象 (淺色底) -->
 <section class="section-padding section-light" id="target-audience">
     <div class="container">
         <div class="section-title"><h2>適合這樣的您</h2></div>
-        <div class="grid">
+        <div class="target-grid">
             <div class="card" onclick="toggleCard(this)">
                 <div class="card-img" style="background-image: url('https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=600')"></div>
                 <div class="card-content">
@@ -205,8 +228,8 @@
                     <button class="expand-btn">了解支援 <i class="fas fa-chevron-down"></i></button>
                 </div>
             </div>
-          <div class="card" onclick="toggleCard(this)">
-               <div class="card-img" style="background-image: url('https://www.istockphoto.com/es/foto/feliz-pareja-asi%C3%A1tica-jugando-en-el-agua-de-mar-en-la-playa-de-la-isla-tropical-al-gm1392555347-448756362?utm_source=pexels&utm_medium=affiliate&utm_campaign=sponsored_photo&utm_content=srp_inline_media&utm_term=asian+couple')"></div>
+            <div class="card" onclick="toggleCard(this)">
+               <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop')"></div>
                <div class="card-content">
                    <h3>同居移民 Pareja de hecho</h3>
                    <p class="service-intro">在陌生的國度，我們陪著你與另一半攜手成家。不讓冗長的西班牙行政流程，磨消你們落地生活的喜悅。</p>
@@ -239,7 +262,6 @@
     </div>
 </section>
 
-<!-- 2. 服務內容 (白底) -->
 <section class="section-padding section-white" id="services">
     <div class="container">
         <div class="section-title"><h2>專業服務內容</h2></div>
@@ -304,7 +326,6 @@
     </div>
 </section>
 
-<!-- 3. 核心理念 (白底 / 精緻感) -->
 <section class="section-padding section-white" id="about-section">
     <div class="container">
         <div class="section-title">
@@ -337,7 +358,6 @@
     </div>
 </section>
 
-<!-- 4. 為什麼選擇我們 (淺香檳金底 / 視覺亮點) -->
 <section class="section-padding section-accent" id="whyus-section">
     <div class="container">
         <div class="section-title">
@@ -364,7 +384,6 @@
     </div>
 </section>
 
-<!-- 5. 最新專欄 (淺色底) -->
 <section class="section-padding section-light" id="blog">
     <div class="container">
         <div class="section-title"><h2>最新專欄</h2></div>

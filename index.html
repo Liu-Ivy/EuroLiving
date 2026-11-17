@@ -25,7 +25,7 @@
         }
 
         /* --- 導覽列 --- */
-        .navbar { 
+        navbar { 
             background: var(--white); 
             padding: 0.8rem 2rem; 
             display: flex; 
@@ -42,60 +42,22 @@
         .logo-area span { font-size: 0.75rem; color: var(--main-gold); letter-spacing: 1.5px; font-weight: 600; text-transform: uppercase; margin-top: 2px; }
         
         .nav-right { display: flex; align-items: center; gap: 20px; }
-        .social-links { display: flex; gap: 15px; border-right: 1px solid #eee; padding-right: 20px; align-items: center; }
-        .social-links a { font-size: 1.2rem; transition: 0.3s; display: flex; align-items: center; }
-        .social-links a:hover { transform: translateY(-2px); opacity: 0.8; }
+        .social-links { display: flex; gap: 15px; border-right: 1px solid #eee; padding-right: 20px; }
+        .social-links a { color: var(--dark-blue); font-size: 1.1rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--main-gold); transform: translateY(-2px); }
 
-        /* 各社群專屬品牌代表色 */
-        .social-links a.icon-blog { color: #e67e22; }      /* 方格子 Blog 暖橘色 */
-        .social-links a.icon-line { color: #06C755; }      /* LINE 官方綠色 */
-        .social-links a.icon-fb   { color: #1877F2; }      /* Facebook 官方藍色 */
-        .social-links a.icon-ig   { color: #E4405F; }      /* Instagram 官方粉紅 */
-        .social-links a.icon-th   { color: #101010; }      /* Threads 官方極致黑 */
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 26px; height: 16px; }
+        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--dark-blue); border-radius: 4px; }
 
-        .hamburger { cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 26px; height: 16px; flex-shrink: 0; }
-        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--dark-blue); border-radius: /* 漢堡按鈕樣式 */
-.hamburger { 
-    cursor: pointer; 
-    display: flex !important; 
-    flex-direction: column; 
-    justify-content: space-between; 
-    width: 24px; 
-    height: 16px; 
-    flex-shrink: 0; 
-}
-.hamburger span { 
-    display: block; 
-    width: 100%; 
-    height: 2px; 
-    background-color: var(--dark-blue); 
-    border-radius: 4px; 
-}
-
-        /* 隱藏的滿版側滑選單，平時收合，點擊 hamburger 後才會滑出 */
         .nav-overlay { 
             position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
             background: rgba(26, 42, 58, 0.98); z-index: 3000; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
             transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
         }
         .nav-overlay.active { right: 0; }
         .nav-overlay a { color: white; text-decoration: none; font-size: 1.8rem; margin: 15px 0; font-weight: 300; letter-spacing: 4px; }
-        .nav-overlay a:hover { color: var(--main-gold); }
         .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
-
-        /* 手機版專屬微調：減少左右擁擠感 */
-        @media (max-width: 768px) {
-            .navbar { padding: 0.8rem 1rem; } 
-            .logo-area h1 { font-size: 1.2rem; letter-spacing: 2px; } 
-            .logo-area span { font-size: 0.65rem; letter-spacing: 1px; }
-            .nav-right { gap: 12px; }
-            .social-links { gap: 10px; padding-right: 12px; } 
-            .social-links a { font-size: 1.05rem; }
-            .hamburger { width: 22px; height: 14px; }
-        }
-
-       
 
         /* --- Hero --- */
         .hero { 

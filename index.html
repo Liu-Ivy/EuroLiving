@@ -25,7 +25,6 @@
         }
 
         /* --- 導覽列 --- */
-            /* --- 導覽列 --- */
         .navbar { 
             background: var(--white); 
             padding: 0.8rem 2rem; 
@@ -55,13 +54,29 @@
         .social-links a.icon-th   { color: #101010; }      /* Threads 官方極致黑 */
 
         .hamburger { cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 26px; height: 16px; flex-shrink: 0; }
-        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--dark-blue); border-radius: 4px; }
+        .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--dark-blue); border-radius: /* 漢堡按鈕樣式 */
+.hamburger { 
+    cursor: pointer; 
+    display: flex !important; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    width: 24px; 
+    height: 16px; 
+    flex-shrink: 0; 
+}
+.hamburger span { 
+    display: block; 
+    width: 100%; 
+    height: 2px; 
+    background-color: var(--dark-blue); 
+    border-radius: 4px; 
+}
 
         /* 隱藏的滿版側滑選單，平時收合，點擊 hamburger 後才會滑出 */
         .nav-overlay { 
             position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
             background: rgba(26, 42, 58, 0.98); z-index: 3000; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
             transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
         }
         .nav-overlay.active { right: 0; }

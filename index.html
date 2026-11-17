@@ -60,27 +60,27 @@
         .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
 
         /* --- 官方line --- */
-        .floating-line-btn {
+     .floating-line-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    background: transparent; /* 拿掉綠色圓圈背景 */
-    color: var(--dark-blue); /* 改為網站深藍色 #1a2a3a */
-    font-size: 46px;         /* 圖示放大 */
+    background: transparent;               /* 拿掉外面的綠色圓圈 */
+    color: rgba(6, 199, 85, 0.85);          /* 經典 LINE 綠，帶一點微透明感 */
+    font-size: 52px;                       /* 再放大一點，讓圖示與文字更清楚 */
     z-index: 2500;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 3px 6px rgba(255, 255, 255, 0.8)); /* 微微白光暈，確保在深色區塊也清楚 */
+    /* 加上輕柔陰影，確保在淺色或白色背景上立體又清晰 */
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12)); 
 }
 
 .floating-line-btn:hover {
     transform: scale(1.1);
-    color: var(--main-gold); /* 滑鼠移過去變成香檳金 */
+    color: rgba(6, 199, 85, 1);             /* 滑鼠移過去或點擊時恢復 100% 飽和度 */
 }
-
 
         /* --- Hero --- */
         .hero { 

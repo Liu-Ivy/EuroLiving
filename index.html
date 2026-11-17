@@ -25,6 +25,7 @@
         }
 
         /* --- 導覽列 --- */
+            /* --- 導覽列 --- */
         .navbar { 
             background: var(--white); 
             padding: 0.8rem 2rem; 
@@ -56,25 +57,30 @@
         .hamburger { cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; width: 26px; height: 16px; flex-shrink: 0; }
         .hamburger span { display: block; width: 100%; height: 2px; background-color: var(--dark-blue); border-radius: 4px; }
 
+        /* 隱藏的滿版側滑選單，平時收合，點擊 hamburger 後才會滑出 */
+        .nav-overlay { 
+            position: fixed; top: 0; right: -100%; width: 100%; height: 100%; 
+            background: rgba(26, 42, 58, 0.98); z-index: 3000; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0); 
+        }
+        .nav-overlay.active { right: 0; }
+        .nav-overlay a { color: white; text-decoration: none; font-size: 1.8rem; margin: 15px 0; font-weight: 300; letter-spacing: 4px; }
+        .nav-overlay a:hover { color: var(--main-gold); }
+        .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
+
         /* 手機版專屬微調：減少左右擁擠感 */
         @media (max-width: 768px) {
-            .navbar { padding: 0.8rem 1rem; } /* 縮小兩側留白 */
-            .logo-area h1 { font-size: 1.2rem; letter-spacing: 2px; } /* 微調標題大小與字距 */
+            .navbar { padding: 0.8rem 1rem; } 
+            .logo-area h1 { font-size: 1.2rem; letter-spacing: 2px; } 
             .logo-area span { font-size: 0.65rem; letter-spacing: 1px; }
             .nav-right { gap: 12px; }
-            .social-links { gap: 10px; padding-right: 12px; } /* 縮小圖示與分隔線距離 */
+            .social-links { gap: 10px; padding-right: 12px; } 
             .social-links a { font-size: 1.05rem; }
             .hamburger { width: 22px; height: 14px; }
         }
-        /* 隱藏手機版漢堡按鈕 */
-        .hamburger { 
-            display: none !important; 
-        }
 
-        /* 隱藏彈出的手機版全螢幕選單 */
-        .nav-overlay { 
-            display: none !important; 
-        }
+       
 
         /* --- Hero --- */
         .hero { 

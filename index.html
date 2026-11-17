@@ -59,6 +59,30 @@
         .nav-overlay a { color: white; text-decoration: none; font-size: 1.8rem; margin: 15px 0; font-weight: 300; letter-spacing: 4px; }
         .close-btn { position: absolute; top: 25px; right: 35px; color: white; font-size: 3rem; cursor: pointer; }
 
+        /* --- 官方line --- */
+        .floating-line-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #06C755; /* LINE 官方綠色 */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 2500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.floating-line-btn:hover {
+    transform: scale(1.1);
+    background-color: #05b34c;
+}
+
         /* --- Hero --- */
         .hero { 
             background: linear-gradient(rgba(26, 42, 58, 0.4), rgba(26, 42, 58, 0.6)), 
@@ -194,6 +218,10 @@
     <a href="#about-section">核心理念</a>
     <a href="#whyus-section">為什麼選擇我們</a>
     <a href="#blog">最新專欄</a>
+    <a href="https://line.me/R/ti/p/@184ebyew" target="_blank" class="floating-line-btn" title="加官方 LINE 諮詢">
+    <i class="fa-brands fa-line"></i>
+</a>
+
 </div>
 
 <section class="hero">
